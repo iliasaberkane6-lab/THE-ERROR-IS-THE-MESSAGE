@@ -74,7 +74,7 @@ def attachment_urls(value: str | None) -> list[str]:
     candidates = re.findall(r"https?://[^\s<>\"']+", value)
     found: list[str] = []
     for candidate in candidates:
-        candidate = candidate.rstrip(".,;:!?)]}")
+        candidate = candidate.rstrip(".,;:!?)]}`")
         try:
             parsed = urlparse(candidate)
         except ValueError:
@@ -83,10 +83,18 @@ def attachment_urls(value: str | None) -> list[str]:
             continue
         host = parsed.netloc.lower().split(":", 1)[0]
         path = parsed.path
-        is_user_attachment = host == "github.com" and (
-            path.startswith("/user-attachments/assets/")
-            or path.startswith("/user-attachments/files/")
-        )
+        is_user_attachment = False
+        if host == "github.com" and path.startswith("/user-attachments/"):
+            parts = [part for part in path.split("/") if part]
+            if len(parts) >= 3 and parts[1] == "assets":
+                is_user_attachment = bool(
+                    re.fullmatch(
+                        r"[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+                        parts[2],
+                    )
+                )
+            elif len(parts) >= 3 and parts[1] == "files":
+                is_user_attachment = bool(re.fullmatch(r"[0-9]+", parts[2]))
         is_repo_attachment = (
             host == "github.com"
             and len([part for part in path.split("/") if part]) >= 4

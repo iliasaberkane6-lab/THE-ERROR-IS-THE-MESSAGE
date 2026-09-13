@@ -35,6 +35,7 @@ class RepoDumpTests(unittest.TestCase):
             "https://github.com/user-attachments/files/123/photo.png "
             "https://user-images.githubusercontent.com/1/2/image.png "
             "https://example.com/not-an-attachment.png "
+            "https://github.com/user-attachments/assets/xxxx` "
             "https://[malformed.example/user-attachments/assets/123"
         )
         self.assertEqual(
@@ -77,7 +78,7 @@ class RepoDumpTests(unittest.TestCase):
                 {"number": 2, "body": "pull body", "pull_request": {"url": "x"}},
             ],
             "/repos/o/r/issues/1": {"number": 1, "body": "issue body"},
-            "/repos/o/r/issues/1/comments": [{"body": "https://github.com/user-attachments/assets/123"}],
+            "/repos/o/r/issues/1/comments": [{"body": "https://github.com/user-attachments/assets/12345678-1234-1234-1234-123456789abc"}],
             "/repos/o/r/pulls": [{"number": 2}],
             "/repos/o/r/pulls/2": {"number": 2, "body": "pull body"},
             "/repos/o/r/issues/2/comments": [{"body": "issue comment"}],
@@ -100,7 +101,10 @@ class RepoDumpTests(unittest.TestCase):
             self.assertTrue((Path(temp_dir) / "manifest.json").exists())
             issues = json.loads((Path(temp_dir) / "issues/index.json").read_text())
             pulls = json.loads((Path(temp_dir) / "pull_requests/index.json").read_text())
-            self.assertEqual(issues["items"][0]["comments_data"][0]["body"], "https://github.com/user-attachments/assets/123")
+            self.assertEqual(
+                issues["items"][0]["comments_data"][0]["body"],
+                "https://github.com/user-attachments/assets/12345678-1234-1234-1234-123456789abc",
+            )
             self.assertEqual(pulls["items"][0]["review_comments"][0]["body"], "review comment")
 
 
