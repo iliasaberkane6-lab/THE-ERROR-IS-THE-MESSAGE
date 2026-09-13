@@ -194,7 +194,17 @@ def fmt_user(value: Any) -> str:
     return (value or {}).get("login") or "unknown"
 
 
-def render_thread_markdown(kind: str, item: dict[str, Any], comments: list[dict[str, Any]]) -> str:
+def rewrite_links(text: str | None, link_map: dict[str, str]) -> str:
+    """Point attachment URLs at their dumped copy so the archive is self-contained."""
+
+    value = (text or "").strip() or "(empty)"
+    for url, path in link_map.items():
+        if url in value:
+            value = value.replace(url, f"../{path}")
+    return value
+
+
+def render_thread_markdown(kind: str, item: dict[str, Any], comments: list[dict[str, Any]], link_map: dict[str, str]) -> str:
     lines = [
         f"# {kind} #{item.get('number')}: {item.get('title') or '(untitled)'}",
         "",
@@ -205,7 +215,7 @@ def render_thread_markdown(kind: str, item: dict[str, Any], comments: list[dict[
         "",
         "## Body",
         "",
-        (item.get("body") or "").strip() or "(empty)",
+        rewrite_links(item.get("body"), link_map),
         "",
     ]
     for comment in comments:
@@ -213,26 +223,26 @@ def render_thread_markdown(kind: str, item: dict[str, Any], comments: list[dict[
             [
                 f"### Comment by {fmt_user(comment.get('user'))} at {comment.get('created_at')}",
                 "",
-                (comment.get("body") or "").strip() or "(empty)",
+                rewrite_links(comment.get("body"), link_map),
                 "",
             ]
         )
     return "\n".join(lines)
 
 
-def write_issue_markdown(output: Path, issues: Iterable[dict[str, Any]]) -> None:
+def write_issue_markdown(output: Path, issues: Iterable[dict[str, Any]], link_map: dict[str, str]) -> None:
     folder = output / "issues"
     folder.mkdir(parents=True, exist_ok=True)
     for issue in issues:
         slug = safe_name(str(issue.get("title") or "issue"), "issue").lower()
         path = folder / f"{issue.get('number'):04d}-{slug}.md"
         path.write_text(
-            render_thread_markdown("Issue", issue, issue.get("comments_data") or []),
+            render_thread_markdown("Issue", issue, issue.get("comments_data") or [], link_map),
             encoding="utf-8",
         )
 
 
-def write_pull_markdown(output: Path, pulls: Iterable[dict[str, Any]]) -> None:
+def write_pull_markdown(output: Path, pulls: Iterable[dict[str, Any]], link_map: dict[str, str]) -> None:
     folder = output / "pull_requests"
     folder.mkdir(parents=True, exist_ok=True)
     for pull in pulls:
@@ -245,12 +255,12 @@ def write_pull_markdown(output: Path, pulls: Iterable[dict[str, Any]]) -> None:
         ]
         comments.sort(key=lambda comment: comment.get("created_at") or "")
         path.write_text(
-            render_thread_markdown("Pull request", pull, comments),
+            render_thread_markdown("Pull request", pull, comments, link_map),
             encoding="utf-8",
         )
 
 
-def write_release_markdown(output: Path, releases: Iterable[dict[str, Any]]) -> None:
+def write_release_markdown(output: Path, releases: Iterable[dict[str, Any]], link_map: dict[str, str]) -> None:
     folder = output / "releases"
     folder.mkdir(parents=True, exist_ok=True)
     for release in releases:
@@ -266,13 +276,14 @@ def write_release_markdown(output: Path, releases: Iterable[dict[str, Any]]) -> 
             "",
             "## Notes",
             "",
-            (release.get("body") or "").strip() or "(empty)",
+            rewrite_links(release.get("body"), link_map),
             "",
             "## Artifacts",
             "",
         ]
         for asset in release.get("assets") or []:
-            lines.append(f"- {asset.get('name')} ({asset.get('size')} bytes): {asset.get('browser_download_url')}")
+            target = link_map.get(asset.get("browser_download_url") or "", asset.get("browser_download_url"))
+            lines.append(f"- {asset.get('name')} ({asset.get('size')} bytes): {target}")
         if not release.get("assets"):
             lines.append("- (none)")
         (folder / f"{tag}.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -374,7 +385,7 @@ def download_attachments(
     for url in urls:
         parsed_url = urlparse(url)
         safe_url = parsed_url._replace(query="", fragment="").geturl()
-        item: dict[str, Any] = {"url": safe_url, "status": "failed"}
+        item: dict[str, Any] = {"url": safe_url, "source_url": url, "status": "failed"}
         try:
             body, content_type = client.bytes(url)
             if len(body) > max_bytes:
@@ -423,6 +434,7 @@ def download_release_assets(
                 "release_tag": release.get("tag_name"),
                 "asset_id": asset.get("id"),
                 "name": asset.get("name"),
+                "source_url": asset.get("browser_download_url"),
                 "status": "failed",
             }
             try:
@@ -483,10 +495,6 @@ def export_repository(
     write_json(output / "repository.json", repository)
     write_json(output / "issues" / "index.json", {"count": len(issue_records), "items": issue_records})
     write_json(output / "pull_requests" / "index.json", {"count": len(pull_records), "items": pull_records})
-    # Readable markdown copies next to the raw JSON so the archive can be
-    # browsed directly on a phone inside the repository.
-    write_issue_markdown(output, issue_records)
-    write_pull_markdown(output, pull_records)
 
     release_records: list[dict[str, Any]] = []
     release_assets: list[dict[str, Any]] = []
@@ -504,7 +512,6 @@ def export_repository(
             for asset in assets
         )
     write_json(output / "releases" / "index.json", {"count": len(release_records), "items": release_records})
-    write_release_markdown(output, release_records)
 
     records_for_attachments: list[dict[str, Any]] = [*issue_records, *pull_records, *release_records]
     if include_attachments:
@@ -515,6 +522,20 @@ def export_repository(
         release_asset_records = []
         write_json(output / "attachments.json", [])
         write_json(output / "release-assets.json", [])
+
+    # Readable markdown copies next to the raw JSON so the archive can be
+    # browsed directly on a phone inside the repository.  Downloaded
+    # attachments are linked by relative path so the archive stays usable
+    # even if the original upload is later deleted.
+    link_map: dict[str, str] = {}
+    for item in [*attachment_records, *release_asset_records]:
+        if item.get("status") != "downloaded" or not item.get("path"):
+            continue
+        for key in {item.get("source_url"), item.get("url")} - {None}:
+            link_map[key] = item["path"]
+    write_issue_markdown(output, issue_records, link_map)
+    write_pull_markdown(output, pull_records, link_map)
+    write_release_markdown(output, release_records, link_map)
 
     manifest = {
         "schema_version": 1,

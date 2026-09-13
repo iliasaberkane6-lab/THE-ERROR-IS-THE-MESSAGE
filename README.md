@@ -13,7 +13,9 @@ The result is written to a deterministic folder with JSON indexes and a
 rendered as a readable markdown file next to the raw JSON, so the archive
 can be browsed directly in the repository on a phone. Downloaded
 attachments keep their real file extensions (detected from the payload, not
-just headers), so media opens directly from the dump. External links are
+just headers), so media opens directly from the dump, and markdown links to
+them are rewritten to the local copy so the archive stays self-contained.
+External links are
 kept in their original text but are not downloaded, so an arbitrary link in
 a discussion cannot make the workflow fetch unrelated content.
 

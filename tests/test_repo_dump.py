@@ -129,7 +129,11 @@ class RepoDumpTests(unittest.TestCase):
             self.assertEqual(pulls["items"][0]["review_comments"][0]["body"], "review comment")
             issue_md = list((Path(temp_dir) / "issues").glob("0001-*.md"))
             self.assertEqual(len(issue_md), 1)
-            self.assertIn("issue body", issue_md[0].read_text())
+            issue_md_text = issue_md[0].read_text()
+            self.assertIn("issue body", issue_md_text)
+            # Downloaded attachment links are rewritten to the local copy.
+            self.assertIn("../attachments/attachment-", issue_md_text)
+            self.assertNotIn("user-attachments/assets/12345678", issue_md_text)
             pull_md = list((Path(temp_dir) / "pull_requests").glob("0002-*.md"))
             self.assertEqual(len(pull_md), 1)
             self.assertIn("review comment", pull_md[0].read_text())
