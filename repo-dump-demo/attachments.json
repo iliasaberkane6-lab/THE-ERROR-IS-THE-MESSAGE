@@ -704,11 +704,6 @@
     "url": "https://github.com/user-attachments/assets/f2f53ef5-5e67-4bff-b649-09068ccef437"
   },
   {
-    "error": "GitHub request failed (404) for https://github.com/user-attachments/assets/xxxx`: Not Found",
-    "status": "failed",
-    "url": "https://github.com/user-attachments/assets/xxxx`"
-  },
-  {
     "bytes": 1643359,
     "content_type": "image/png",
     "path": "attachments/attachment-0f74c415fef5.png",

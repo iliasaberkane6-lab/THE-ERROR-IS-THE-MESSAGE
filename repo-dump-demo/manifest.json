@@ -1,10 +1,10 @@
 {
   "counts": {
     "attachments_downloaded": 401,
-    "attachments_failed": 1,
-    "attachments_found": 402,
+    "attachments_failed": 0,
+    "attachments_found": 401,
     "issues": 60,
-    "pull_requests": 13,
+    "pull_requests": 14,
     "release_assets": 0,
     "release_assets_downloaded": 0,
     "release_assets_failed": 0,
@@ -18,7 +18,7 @@
     "releases": "releases/index.json",
     "repository": "repository.json"
   },
-  "generated_at": "2026-09-13T12:56:52+00:00",
+  "generated_at": "2026-09-13T13:08:09+00:00",
   "notes": [
     "Issues and pull requests are separated; GitHub exposes pull requests in the issues endpoint too.",
     "Pull requests include issue comments, reviews, and inline review comments.",
