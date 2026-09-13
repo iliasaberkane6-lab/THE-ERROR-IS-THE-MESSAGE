@@ -50,12 +50,12 @@ jobs:
 
       - name: Commit the export into this repository
         run: |
-          if [ -z "$(git status --porcelain -- \"$OUTPUT_DIRECTORY\")" ]; then
+          git add -f -A -- "$OUTPUT_DIRECTORY"
+          if git diff --cached --quiet -- "$OUTPUT_DIRECTORY"; then
             echo "The export is unchanged. Nothing to commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- "$OUTPUT_DIRECTORY"
           git commit -m "chore: dump $SOURCE_REPOSITORY"
           git push
