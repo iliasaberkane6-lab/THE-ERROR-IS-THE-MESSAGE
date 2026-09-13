@@ -75,7 +75,12 @@ def attachment_urls(value: str | None) -> list[str]:
     found: list[str] = []
     for candidate in candidates:
         candidate = candidate.rstrip(".,;:!?)]}")
-        parsed = urlparse(candidate)
+        try:
+            parsed = urlparse(candidate)
+        except ValueError:
+            # Discussion text is user-controlled. Ignore malformed URL-like
+            # strings rather than aborting an otherwise complete export.
+            continue
         host = parsed.netloc.lower().split(":", 1)[0]
         path = parsed.path
         is_user_attachment = host == "github.com" and (
@@ -102,11 +107,16 @@ class GitHubClient:
         self.api_root = api_root.rstrip("/")
 
     def _request(self, url: str, accept: str = "application/vnd.github+json") -> tuple[bytes, dict[str, str]]:
+        display_url = urlparse(url)._replace(query="", fragment="").geturl()
         headers = {
             "Accept": accept,
             "User-Agent": "repository-dump-tool/1.0",
         }
-        if self.token:
+        # Signed GitHub attachment/CDN URLs already carry their own temporary
+        # credentials. Sending a GitHub API token to those hosts both breaks
+        # the signed request and risks leaking the token in a CDN error. Only
+        # authenticate requests addressed to this client's API root.
+        if self.token and (url == self.api_root or url.startswith(f"{self.api_root}/")):
             headers["Authorization"] = f"Bearer {self.token}"
         request = Request(url, headers=headers)
         for attempt in range(4):
@@ -116,12 +126,17 @@ class GitHubClient:
             except HTTPError as error:
                 if error.code not in {429, 500, 502, 503, 504} or attempt == 3:
                     detail = error.read(4096).decode("utf-8", errors="replace")
-                    raise RuntimeError(f"GitHub request failed ({error.code}) for {url}: {detail[:500]}") from error
+                    if self.token:
+                        detail = detail.replace(self.token, "[redacted-token]")
+                    raise RuntimeError(f"GitHub request failed ({error.code}) for {display_url}: {detail[:500]}") from error
             except URLError as error:
                 if attempt == 3:
-                    raise RuntimeError(f"GitHub request failed for {url}: {error}") from error
+                    detail = str(error)
+                    if self.token:
+                        detail = detail.replace(self.token, "[redacted-token]")
+                    raise RuntimeError(f"GitHub request failed for {display_url}: {detail}") from error
             time.sleep(2**attempt)
-        raise RuntimeError(f"GitHub request failed for {url}")
+        raise RuntimeError(f"GitHub request failed for {display_url}")
 
     def json(self, path: str) -> Any:
         url = path if path.startswith("http") else f"{self.api_root}{path}"
@@ -207,7 +222,9 @@ def download_attachments(
     results: list[dict[str, Any]] = []
     used_names: set[str] = set()
     for url in urls:
-        item: dict[str, Any] = {"url": url, "status": "failed"}
+        parsed_url = urlparse(url)
+        safe_url = parsed_url._replace(query="", fragment="").geturl()
+        item: dict[str, Any] = {"url": safe_url, "status": "failed"}
         try:
             body, content_type = client.bytes(url)
             if len(body) > max_bytes:

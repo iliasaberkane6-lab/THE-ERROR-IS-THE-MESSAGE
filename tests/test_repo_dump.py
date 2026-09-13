@@ -34,7 +34,8 @@ class RepoDumpTests(unittest.TestCase):
         text = (
             "https://github.com/user-attachments/files/123/photo.png "
             "https://user-images.githubusercontent.com/1/2/image.png "
-            "https://example.com/not-an-attachment.png"
+            "https://example.com/not-an-attachment.png "
+            "https://[malformed.example/user-attachments/assets/123"
         )
         self.assertEqual(
             attachment_urls(text),
@@ -43,6 +44,30 @@ class RepoDumpTests(unittest.TestCase):
                 "https://user-images.githubusercontent.com/1/2/image.png",
             ],
         )
+
+    def test_attachment_download_does_not_send_api_token_to_signed_cdn(self):
+        client = GitHubClient(token="secret-token")
+        captured = {}
+
+        class Response:
+            headers = {"Content-Type": "application/octet-stream"}
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                return False
+
+            def read(self):
+                return b"ok"
+
+        def fake_urlopen(request, timeout):
+            captured["headers"] = dict(request.header_items())
+            return Response()
+
+        with patch("tools.repo_dump.urlopen", fake_urlopen):
+            client.bytes("https://github.com/user-attachments/assets/123")
+        self.assertNotIn("Authorization", captured["headers"])
 
     def test_export_separates_issues_and_pull_requests_and_downloads_media(self):
         responses = {
