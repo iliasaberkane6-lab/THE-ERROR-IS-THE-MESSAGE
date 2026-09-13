@@ -80,4 +80,4 @@ Claude
 
 ### Comment by attogram at 2026-09-09T09:19:48Z
 
-[previews-personas-v0.1.pdf](https://github.com/user-attachments/files/31999659/previews-personas-v0.1.pdf)
+[previews-personas-v0.1.pdf](../attachments/previews-personas-v0.1.pdf)

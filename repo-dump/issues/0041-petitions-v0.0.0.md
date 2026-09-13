@@ -23,8 +23,8 @@ The Perpetual Petition Protocol: Multilingual Executive Summary
 
 ### Comment by provo-42-error at 2026-09-10T11:48:36Z
 
-[Perpetual Petition Protocol Whitepaper.pdf](https://github.com/user-attachments/files/32056881/Perpetual.Petition.Protocol.Whitepaper.pdf)
-<img width="3060" height="4080" alt="Image" src="https://github.com/user-attachments/assets/f0c61c74-ac14-4a3b-b0ac-ba6fc634c75f" />
+[Perpetual Petition Protocol Whitepaper.pdf](../attachments/attachment-cf6e7697410a.pdf)
+<img width="3060" height="4080" alt="Image" src="../attachments/attachment-e9d14d9e8387.jpg" />
 
 ### Comment by provo-42-error at 2026-09-10T11:54:39Z
 

@@ -7,7 +7,7 @@
 
 ## Body
 
-<img width="4000" height="3000" alt="Image" src="https://github.com/user-attachments/assets/394d3278-5614-42d1-ac09-791ff73b8a05" />
+<img width="4000" height="3000" alt="Image" src="../attachments/attachment-0da5defb2d29.jpg" />
 
 ### Comment by attogram at 2026-08-31T15:17:04Z
 
@@ -138,14 +138,14 @@ In short: Ajax is your local giant, but it lives in a different financial and co
 
 [DIGITAL HISTORICAL ARCHAEOLOGY]
 
-https://github.com/user-attachments/assets/06a31e61-aad5-4495-af15-c1895373eac3
+../attachments/attachment-d5c743f11a70.mp4
 
 ### Comment by attogram at 2026-08-31T16:09:15Z
 
-https://github.com/user-attachments/assets/9d893ac7-42d7-4888-8923-949d83824a90
+../attachments/attachment-1eda29706a26.mp4
 
-https://github.com/user-attachments/assets/d2cb62e4-ca31-4fea-8323-dfa2d1e5373a
+../attachments/attachment-8c2be97861bb.mp4
 
-https://github.com/user-attachments/assets/17a6cf8d-a17a-4b1a-aea2-703f81f1bf32
+../attachments/attachment-be225924e633.mp4
 
-https://github.com/user-attachments/assets/ad41e456-887b-4652-9fb3-4e81803fb22c
+../attachments/attachment-b614bebfcb7f.mp4

@@ -27,7 +27,7 @@ Timeframe:
 
 ---
 
-[bounty.repo.dump.0001.pdf](https://github.com/user-attachments/files/32157681/bounty.repo.dump.0001.pdf)
+[bounty.repo.dump.0001.pdf](../attachments/bounty.repo.dump.0001.pdf)
 
 ### Comment by attogram at 2026-09-13T08:25:41Z
 
@@ -57,91 +57,91 @@ The bounty of €100 will be awarded upon demonstrating a working execution on a
 Examples of embedded artifacts in issues:
 
 
-https://github.com/user-attachments/assets/8210eda6-f708-448a-8ca3-515bc00d1edc
+../attachments/attachment-ce3b18fdde9c.mp4
 
-https://github.com/user-attachments/assets/fbea768a-c8c7-4cec-9725-f1f60c0a36a2
+../attachments/attachment-6c5f8ce70f12.mp4
 
-https://github.com/user-attachments/assets/3f05c7d0-84bb-474a-9ef8-9f09d706a330
+../attachments/attachment-0c83bd549219.mp4
 
-https://github.com/user-attachments/assets/dfd1e8da-14c1-448b-ab78-48b019755cc4
+../attachments/attachment-5eee3ee24322.mp4
 
 ### Comment by attogram at 2026-09-13T08:30:49Z
 
 Examples music:
 
-https://github.com/user-attachments/assets/85df85e8-6546-49ad-81d7-93debdfc6c92
+../attachments/attachment-01b0aaa7e8b1.mp4
 
-https://github.com/user-attachments/assets/4597f589-5e72-4254-9e17-fe2c9e25cb3e
+../attachments/attachment-9f9d05aaa3ed.mp4
 
-https://github.com/user-attachments/assets/9396df72-732b-4d1a-b9a1-12162ba34bb3
+../attachments/attachment-ef5188728c2b.mp4
 
-https://github.com/user-attachments/assets/2fe23ffe-2ec2-4147-a794-db48e3a77771
+../attachments/attachment-4ab7fd4ddb39.mp4
 
-https://github.com/user-attachments/assets/bbb31476-f5c2-4c49-9c6f-398620d497ff
+../attachments/attachment-0dbfc380892c.mp4
 
-https://github.com/user-attachments/assets/1e082a91-0748-47bf-a823-9d33833998e9
+../attachments/attachment-c0d9c1d3a7f0.mp4
 
-https://github.com/user-attachments/assets/c48dd6e3-c697-4599-bb7c-9d7021da3e31
+../attachments/attachment-2e76da212b76.mp4
 
-https://github.com/user-attachments/assets/b992c3f3-ef32-4685-a5b8-f78dbb07898f
+../attachments/attachment-cebc47aee501.mp4
 
-https://github.com/user-attachments/assets/c740bc1b-1291-4499-ab9a-dd21e233ec21
+../attachments/attachment-cd3dd9ebbc63.mp4
 
-https://github.com/user-attachments/assets/e040cbcd-d7b0-4da2-b73c-b8d6ec0bacf8
+../attachments/attachment-a9d006727338.mp4
 
-https://github.com/user-attachments/assets/b2e20fe0-1c1f-4cd1-8820-03c14fdc7e8b
+../attachments/attachment-9bf6581d4bfa.mp4
 
-https://github.com/user-attachments/assets/f75d9000-b5eb-478b-ba01-80af066644b2
+../attachments/attachment-b16cd219a571.mp4
 
-https://github.com/user-attachments/assets/ae357efa-dbb6-4c2f-b43c-bf8ec5896b44
+../attachments/attachment-df7caec3d737.mp4
 
-https://github.com/user-attachments/assets/9518967f-5e3d-4f1b-a70e-ad38df38190f
+../attachments/attachment-4d24bf0c7ed5.mp4
 
-https://github.com/user-attachments/assets/0cffb9c6-2bf6-425b-80cd-f7a8eab0f7b0
+../attachments/attachment-8f8e25c4b4b2.mp4
 
-https://github.com/user-attachments/assets/cf38f515-6b51-4a13-9fe3-2169e60e7a52
+../attachments/attachment-f75985337252.mp4
 
-https://github.com/user-attachments/assets/fc6acd34-fd60-4de3-9fec-95bc34937971
+../attachments/attachment-4c44e278b395.mp4
 
-https://github.com/user-attachments/assets/b825dffc-91fe-49c2-8a02-f81cadbe135f
+../attachments/attachment-a7060c18927b.mp4
 
-https://github.com/user-attachments/assets/0c8ed293-2dfb-4a89-bce0-dddda923ca92
+../attachments/attachment-f734731296ca.mp4
 
-https://github.com/user-attachments/assets/3f8c825a-2b1e-4e8c-a7f4-c484d448d102
+../attachments/attachment-4f0712a44f09.mp4
 
-https://github.com/user-attachments/assets/9f1ea13e-e820-4de5-8470-df2728e73550
+../attachments/attachment-822935428f3c.mp4
 
-https://github.com/user-attachments/assets/22fd82d0-8a94-4713-b8f2-616aa6feadab
+../attachments/attachment-fe02dd9936d8.mp4
 
-https://github.com/user-attachments/assets/6c40ac3d-bab4-4fd2-871a-204c299d0a68
+../attachments/attachment-c0e42b00d3ac.mp4
 
-https://github.com/user-attachments/assets/e0d3d64a-631d-4387-8edd-6b8c9238aea1
+../attachments/attachment-bbc4dd633ee2.mp4
 
-https://github.com/user-attachments/assets/656d36a8-eb15-42a9-a270-c0ca7574b2d1
+../attachments/attachment-237ddbb5e123.mp4
 
 ### Comment by attogram at 2026-09-13T08:32:22Z
 
 Examples images
 
-<img width="1536" height="2048" alt="Image" src="https://github.com/user-attachments/assets/cb7b2e93-7ebd-41ea-b292-0d27d60a122e" />
-<img width="1080" height="2340" alt="Image" src="https://github.com/user-attachments/assets/4bd4c007-549b-46d5-95cc-368d61e42d94" />
-<img width="1080" height="2340" alt="Image" src="https://github.com/user-attachments/assets/86ed291e-6cf4-46aa-a875-d07825c5ff73" />
-<img width="1080" height="2340" alt="Image" src="https://github.com/user-attachments/assets/cabbdf60-80f2-4742-94bb-d2824e22e24a" />
-<img width="1080" height="2340" alt="Image" src="https://github.com/user-attachments/assets/09452c1c-d83d-4efb-826a-efd9a4c48280" />
-<img width="1080" height="2340" alt="Image" src="https://github.com/user-attachments/assets/fe5f1d08-bf0b-4c14-82ab-7e2d9f1cfade" />
-<img width="1080" height="2340" alt="Image" src="https://github.com/user-attachments/assets/4d43325d-93af-4cd1-b1bf-fdd4fea65aa6" />
-<img width="1080" height="2340" alt="Image" src="https://github.com/user-attachments/assets/6588767f-0161-42dd-9da3-d77888af00fe" />
-<img width="3000" height="4000" alt="Image" src="https://github.com/user-attachments/assets/210cfc13-2729-4f54-8d08-6d7fc8e6a114" />
-<img width="200" height="200" alt="Image" src="https://github.com/user-attachments/assets/57866e6a-6d80-4dca-aa90-48bb13113232" />
-<img width="1168" height="876" alt="Image" src="https://github.com/user-attachments/assets/fc74713e-1b15-4fee-80c5-4e3a17e56070" />
-<img width="1376" height="768" alt="Image" src="https://github.com/user-attachments/assets/24ad3621-fa29-448e-95b5-e3f5407ec0b3" />
-<img width="1408" height="768" alt="Image" src="https://github.com/user-attachments/assets/3191a0f8-01e1-4810-ba51-c3ea7bca656c" />
-<img width="1376" height="768" alt="Image" src="https://github.com/user-attachments/assets/6e814f29-1082-4933-a9ed-871e6e3920b9" />
-<img width="3000" height="4000" alt="Image" src="https://github.com/user-attachments/assets/e150062c-f27f-49fa-a2b3-08044bcb6ce7" />
-<img width="1408" height="768" alt="Image" src="https://github.com/user-attachments/assets/e9cfdee9-c144-4ca1-8b72-388165b23fbe" />
-<img width="1024" height="1024" alt="Image" src="https://github.com/user-attachments/assets/aab02b6b-eebb-4b71-8db6-4e2ae3312a8e" />
-<img width="3000" height="4000" alt="Image" src="https://github.com/user-attachments/assets/d8fad760-06fa-4f3e-a6a8-40eb580aeb0e" />
-<img width="4000" height="3000" alt="Image" src="https://github.com/user-attachments/assets/1a9d09ba-f30c-445e-adfd-7be4210cb648" />
+<img width="1536" height="2048" alt="Image" src="../attachments/attachment-80cbbfaad006.jpg" />
+<img width="1080" height="2340" alt="Image" src="../attachments/attachment-eca1085fda77.jpg" />
+<img width="1080" height="2340" alt="Image" src="../attachments/attachment-c6239a07b29a.jpg" />
+<img width="1080" height="2340" alt="Image" src="../attachments/attachment-6fab1e90a095.jpg" />
+<img width="1080" height="2340" alt="Image" src="../attachments/attachment-288c8c07aed4.jpg" />
+<img width="1080" height="2340" alt="Image" src="../attachments/attachment-b6737cbe3f33.jpg" />
+<img width="1080" height="2340" alt="Image" src="../attachments/attachment-7c8ab9ad162c.jpg" />
+<img width="1080" height="2340" alt="Image" src="../attachments/attachment-6ec23af7502f.jpg" />
+<img width="3000" height="4000" alt="Image" src="../attachments/attachment-9eb557f42d56.jpg" />
+<img width="200" height="200" alt="Image" src="../attachments/attachment-7fb850217caa.gif" />
+<img width="1168" height="876" alt="Image" src="../attachments/attachment-88e0cee86981.jpg" />
+<img width="1376" height="768" alt="Image" src="../attachments/attachment-06fd0d3f2105.jpg" />
+<img width="1408" height="768" alt="Image" src="../attachments/attachment-48fdf9891cc4.png" />
+<img width="1376" height="768" alt="Image" src="../attachments/attachment-1a0a4915469e.jpg" />
+<img width="3000" height="4000" alt="Image" src="../attachments/attachment-4ca6741ec650.jpg" />
+<img width="1408" height="768" alt="Image" src="../attachments/attachment-c38e29ca5a3f.png" />
+<img width="1024" height="1024" alt="Image" src="../attachments/attachment-4579845b14d7.png" />
+<img width="3000" height="4000" alt="Image" src="../attachments/attachment-88e3582118e9.jpg" />
+<img width="4000" height="3000" alt="Image" src="../attachments/attachment-04599a9f5aa8.jpg" />
 
 ### Comment by sapph1re at 2026-09-13T08:32:41Z
 
@@ -189,10 +189,10 @@ It includes the mobile-triggerable workflow, paginated export of issues/PRs/revi
 
 ### Comment by attogram at 2026-09-13T08:42:57Z
 
-<img width="3000" height="4000" alt="Image" src="https://github.com/user-attachments/assets/9fcb2797-5b51-40f5-9763-b9a96532555c" />
-<img width="3000" height="4000" alt="Image" src="https://github.com/user-attachments/assets/8d8fe257-7b9f-4345-a932-f1fd22b9ede5" />
-<img width="3000" height="4000" alt="Image" src="https://github.com/user-attachments/assets/784f53c5-b402-45b3-b043-99d4d6b9a5bd" />
-<img width="3000" height="4000" alt="Image" src="https://github.com/user-attachments/assets/92dc139f-8e4b-4f3b-b475-14581afa0655" />
+<img width="3000" height="4000" alt="Image" src="../attachments/attachment-017281c2aa5e.jpg" />
+<img width="3000" height="4000" alt="Image" src="../attachments/attachment-963b9a41439a.jpg" />
+<img width="3000" height="4000" alt="Image" src="../attachments/attachment-3d6e65633ba0.jpg" />
+<img width="3000" height="4000" alt="Image" src="../attachments/attachment-a3588011804f.jpg" />
 
 ### Comment by sapph1re at 2026-09-13T09:09:59Z
 
@@ -275,23 +275,23 @@ Final comprehensive audit completed. **PR #70** now achieves **100% strict compl
 
 ### Comment by provo-42-error at 2026-09-13T10:22:24Z
 
-<img width="4080" height="3060" alt="Image" src="https://github.com/user-attachments/assets/dc4ae476-a959-4574-81af-f437015bd8ad" />
+<img width="4080" height="3060" alt="Image" src="../attachments/attachment-c7267f38b503.jpg" />
 
-https://github.com/user-attachments/assets/6804e20e-ed3b-42eb-a23a-45b20b8779f9
+../attachments/attachment-62f3eff4e705.mp4
 
-<img width="1536" height="2048" alt="Image" src="https://github.com/user-attachments/assets/e288639e-4de3-4672-a6e2-d70670d32022" />
-<img width="1536" height="2048" alt="Image" src="https://github.com/user-attachments/assets/610173b1-3c04-4e99-bb87-bb19c82cdc8b" />
-<img width="2048" height="602" alt="Image" src="https://github.com/user-attachments/assets/b53a88dd-46d8-412b-bdb0-85a69ce7207e" />
+<img width="1536" height="2048" alt="Image" src="../attachments/attachment-916123791eea.jpg" />
+<img width="1536" height="2048" alt="Image" src="../attachments/attachment-9d14dfe70250.jpg" />
+<img width="2048" height="602" alt="Image" src="../attachments/attachment-8bf52b7ab2b0.jpg" />
 
 ### Comment by provo-42-error at 2026-09-13T10:24:00Z
 
-<img width="1536" height="2048" alt="Image" src="https://github.com/user-attachments/assets/d4b0a207-67a4-4f62-a28b-52600fde3039" />
+<img width="1536" height="2048" alt="Image" src="../attachments/attachment-0934b699d574.jpg" />
 
 ### Comment by provo-42-error at 2026-09-13T10:24:30Z
 
-<img width="4080" height="3060" alt="Image" src="https://github.com/user-attachments/assets/b1e6c07e-811a-4cc6-a531-5679fdd676a2" />
+<img width="4080" height="3060" alt="Image" src="../attachments/attachment-5fa0eebe7ba5.jpg" />
 
-<img width="1548" height="228" alt="Image" src="https://github.com/user-attachments/assets/10aa0e6a-7e0d-450d-899e-f5a545dc1b2b" />
+<img width="1548" height="228" alt="Image" src="../attachments/attachment-5d62c9656780.jpg" />
 
 ### Comment by YospGeng at 2026-09-13T10:25:29Z
 

@@ -244,9 +244,9 @@ Now that your repository's thesis has been independently analyzed and validated,
 
 ### Comment by attogram at 2026-09-10T18:49:33Z
 
-<img width="4000" height="3000" alt="Image" src="https://github.com/user-attachments/assets/b2b30381-b9b9-4c51-85b3-0a51c2ebebc3" />
+<img width="4000" height="3000" alt="Image" src="../attachments/attachment-9a5f26bf865c.jpg" />
 
-https://github.com/user-attachments/assets/c37e7932-8fa7-4ca5-8d91-c057d733464f
+../attachments/attachment-b6dcc6577724.mp4
 
 ### Comment by attogram at 2026-09-10T18:51:32Z
 

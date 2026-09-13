@@ -7,17 +7,17 @@
 
 ## Body
 
-<img width="4000" height="3000" alt="Image" src="https://github.com/user-attachments/assets/b67e4953-dcd6-4080-b1da-c7901fa1067e" />
+<img width="4000" height="3000" alt="Image" src="../attachments/attachment-1c6c57cfe59e.jpg" />
 
 ### Comment by attogram at 2026-09-09T08:26:50Z
 
-<img width="1408" height="768" alt="Image" src="https://github.com/user-attachments/assets/f89dcdee-ef9a-4649-9557-090c4353c127" />
-<img width="1408" height="768" alt="Image" src="https://github.com/user-attachments/assets/f575d354-e06b-46f0-9cfc-46f8245c15d8" />
-<img width="1408" height="768" alt="Image" src="https://github.com/user-attachments/assets/aeb67359-042f-4760-a252-8930add775d0" />
-<img width="1408" height="768" alt="Image" src="https://github.com/user-attachments/assets/d17ecfe3-be28-4729-98d2-0749bcf5e25e" />
-<img width="1408" height="768" alt="Image" src="https://github.com/user-attachments/assets/25a6a9a0-5684-4648-a394-caf10f9bde4c" />
-<img width="1408" height="768" alt="Image" src="https://github.com/user-attachments/assets/9c7d0192-5107-4cb9-9ed9-7e9421ee8aac" />
-<img width="1376" height="768" alt="Image" src="https://github.com/user-attachments/assets/3358247c-4d74-4317-adb5-52228703dea9" />
+<img width="1408" height="768" alt="Image" src="../attachments/attachment-9b1cf38e3693.png" />
+<img width="1408" height="768" alt="Image" src="../attachments/attachment-3d11ff569718.png" />
+<img width="1408" height="768" alt="Image" src="../attachments/attachment-b714cc8159ef.png" />
+<img width="1408" height="768" alt="Image" src="../attachments/attachment-418951c3bcda.png" />
+<img width="1408" height="768" alt="Image" src="../attachments/attachment-a38310cd1e9e.png" />
+<img width="1408" height="768" alt="Image" src="../attachments/attachment-70613f2a6304.png" />
+<img width="1376" height="768" alt="Image" src="../attachments/attachment-dd51400dd47a.png" />
 
 ### Comment by attogram at 2026-09-09T08:55:27Z
 
@@ -37,4 +37,4 @@ Row 4: 8–10s (Catharsis) | Dark park background with roaring flames, neon ligh
 
 ### Comment by attogram at 2026-09-09T08:55:53Z
 
-<img width="1376" height="768" alt="Image" src="https://github.com/user-attachments/assets/7d617ff3-2878-4468-980d-588b98f4eb70" />
+<img width="1376" height="768" alt="Image" src="../attachments/attachment-da7437880718.png" />

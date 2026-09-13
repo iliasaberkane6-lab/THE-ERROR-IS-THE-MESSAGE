@@ -53,21 +53,21 @@ Important: The Klingon should feel genuinely intimidating and authoritative. FOU
 
 ### Comment by attogram at 2026-09-11T06:56:40Z
 
-<img width="1408" height="768" alt="Image" src="https://github.com/user-attachments/assets/4770ca68-09fd-404b-957a-a46d9095b4fb" />
-<img width="1376" height="768" alt="Image" src="https://github.com/user-attachments/assets/3e6a97ad-3b9e-4f48-9ff0-aaaa4578ed7f" />
+<img width="1408" height="768" alt="Image" src="../attachments/attachment-0f74c415fef5.png" />
+<img width="1376" height="768" alt="Image" src="../attachments/attachment-010439391032.png" />
 
 Gemini
 
 ### Comment by attogram at 2026-09-11T06:57:40Z
 
-<img width="1376" height="768" alt="Image" src="https://github.com/user-attachments/assets/7649df47-7796-49c5-913e-bccc06804551" />
+<img width="1376" height="768" alt="Image" src="../attachments/attachment-5f05f3dc9596.png" />
 
 ### Comment by attogram at 2026-09-11T07:33:58Z
 
-https://github.com/user-attachments/assets/2a30fb95-b117-4b92-89fe-488e18836c93
+../attachments/attachment-55b3cb3aefdb.mp4
 
-https://github.com/user-attachments/assets/7a27d841-b55d-423a-8fa5-5cd6cd9fee02
+../attachments/attachment-f1ec17b7a675.mp4
 
-https://github.com/user-attachments/assets/4ac659ee-e66b-409f-8bfe-b91f1f0d3e87
+../attachments/attachment-f3f8d21299bc.mp4
 
-https://github.com/user-attachments/assets/6617002a-5175-4c87-8d91-dc3f272d2567
+../attachments/attachment-a62ef94ddad4.mp4

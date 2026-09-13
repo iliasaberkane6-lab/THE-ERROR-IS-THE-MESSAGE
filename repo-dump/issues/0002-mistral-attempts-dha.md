@@ -280,11 +280,11 @@ The DHA deposit is the latest in a trajectory that includes "Archaeology 0.0 - R
 
 ### Comment by attogram at 2026-08-30T06:52:38Z
 
-[Provo 42 v0.0.2026.08.29.chatgpt.pdf](https://github.com/user-attachments/files/31609214/Provo.42.v0.0.2026.08.29.chatgpt.pdf)
+[Provo 42 v0.0.2026.08.29.chatgpt.pdf](../attachments/attachment-5b6a02546946.pdf)
 
 ### Comment by attogram at 2026-08-30T06:53:24Z
 
-[Provo 42 v0.0.2026.08.29.chatgpt (2).txt](https://github.com/user-attachments/files/31609219/Provo.42.v0.0.2026.08.29.chatgpt.2.txt)
+[Provo 42 v0.0.2026.08.29.chatgpt (2).txt](../attachments/attachment-8455e4e1ab87.txt)
 
 ### Comment by attogram at 2026-08-30T06:54:29Z
 

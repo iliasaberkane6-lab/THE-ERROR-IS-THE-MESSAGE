@@ -9,25 +9,25 @@
 
 PING
 
-<img width="2048" height="1536" alt="Image" src="https://github.com/user-attachments/assets/b9d833a1-f07f-43f8-a9c5-63c501eaaae5" />
+<img width="2048" height="1536" alt="Image" src="../attachments/attachment-3447c6418fe4.jpg" />
 
-https://github.com/user-attachments/assets/39d64f79-8dd6-4d0d-834a-dcdc995940bb
+../attachments/attachment-3081495a6b3b.mp4
 
-<img width="1536" height="2048" alt="Image" src="https://github.com/user-attachments/assets/4ee65710-d0b2-4248-9b89-2c8bde39ef1a" />
+<img width="1536" height="2048" alt="Image" src="../attachments/attachment-c5f46e1d79a7.jpg" />
 
-<img width="2048" height="1536" alt="Image" src="https://github.com/user-attachments/assets/a1a247b3-3aac-4806-89cf-2cbbc946bcae" />
+<img width="2048" height="1536" alt="Image" src="../attachments/attachment-89238a32a532.jpg" />
 
-https://github.com/user-attachments/assets/9e987baf-5365-4560-ad80-ab944f73e30d
+../attachments/attachment-2c8f3228b9dc.mp4
 
-https://github.com/user-attachments/assets/73c13c1c-2551-40da-af1e-715a4ed945f5
+../attachments/attachment-0d8b22918769.mp4
 
-https://github.com/user-attachments/assets/573013a8-34f7-4dbf-bfd1-3d308d5200e2
+../attachments/attachment-70159c0ba0fd.mp4
 
-https://github.com/user-attachments/assets/dc83e450-27b8-4c68-a204-975287945819
+../attachments/attachment-6c7b3101876c.mp4
 
-https://github.com/user-attachments/assets/8d9ee613-fe8e-40c7-bb63-35477a12d858
+../attachments/attachment-8a1a7a27ea55.mp4
 
-https://github.com/user-attachments/assets/c86d0912-baac-4285-86f6-8c21e8882708
+../attachments/attachment-96474c356f50.mp4
 
 ### Comment by provo-42-error at 2026-09-10T10:39:56Z
 
@@ -57,40 +57,40 @@ PII Declaration
 
 ### Comment by provo-42-error at 2026-09-10T10:49:05Z
 
-[board.pledge.0002.pdf](https://github.com/user-attachments/files/32054915/board.pledge.0002.pdf)
-[p42-control-architecture-v0.2.pdf](https://github.com/user-attachments/files/32054918/p42-control-architecture-v0.2.pdf)
-[Write a full academic paper about your mistakes. Y... (1).pdf](https://github.com/user-attachments/files/32054914/Write.a.full.academic.paper.about.your.mistakes.Y.1.pdf)
-[We need that in the form of an academic paper as i....pdf](https://github.com/user-attachments/files/32054913/We.need.that.in.the.form.of.an.academic.paper.as.i.pdf)
-[We need a full academic paper on this topic becaus....pdf](https://github.com/user-attachments/files/32054917/We.need.a.full.academic.paper.on.this.topic.becaus.pdf)
-[I said a full academic paper that was not academic....pdf](https://github.com/user-attachments/files/32054921/I.said.a.full.academic.paper.that.was.not.academic.pdf)
-[The 1960s Movements- Lessons in Law, Strategy, and....pdf](https://github.com/user-attachments/files/32054922/The.1960s.Movements-.Lessons.in.Law.Strategy.and.pdf)
-[Zenodo_22308897_Review_260904_213436.pdf](https://github.com/user-attachments/files/32054920/Zenodo_22308897_Review_260904_213436.pdf)
-[Zenodo_22308897_Review.pdf](https://github.com/user-attachments/files/32054916/Zenodo_22308897_Review.pdf)
-[Neurochemistry of an Acute Social-Threat Stress Response_ From I.pdf](https://github.com/user-attachments/files/32054925/Neurochemistry.of.an.Acute.Social-Threat.Stress.Response_.From.I.pdf)
-[academic_post_mortem_analysis.pdf](https://github.com/user-attachments/files/32054924/academic_post_mortem_analysis.pdf)
-[That was good except when we made the PDF, the You....pdf](https://github.com/user-attachments/files/32054919/That.was.good.except.when.we.made.the.PDF.the.You.pdf)
-[Okay, that's a good format, but you've missed expl....pdf](https://github.com/user-attachments/files/32054923/Okay.that.s.a.good.format.but.you.ve.missed.expl.pdf)
-[Good u pass.  Now a full podcast on provo 42.pdf](https://github.com/user-attachments/files/32054930/Good.u.pass.Now.a.full.podcast.on.provo.42.pdf)
-[I'll give you a hint. It's on Zenodo under the Roc....pdf](https://github.com/user-attachments/files/32054926/I.ll.give.you.a.hint.It.s.on.Zenodo.under.the.Roc.pdf)
-[We're doing a project called Provo 42. To get into....pdf](https://github.com/user-attachments/files/32054934/We.re.doing.a.project.called.Provo.42.To.get.into.pdf)
-[📢 Conclusion_ A Manifesto for the Age of Total Documentation__ PROVO 4.2 is __not just a project__—it is a __provocation ab.PDF](https://github.com/user-attachments/files/32054927/Conclusion_.A.Manifesto.for.the.Age.of.Total.Documentation__.PROVO.4.2.is.__not.just.a.project__.it.is.a.__provocation.ab.PDF)
-[Cyberpunk Music Video Cost Breakdown & Replication....pdf](https://github.com/user-attachments/files/32054928/Cyberpunk.Music.Video.Cost.Breakdown.Replication.pdf)
-[rock-talk.0.3.1.md](https://github.com/user-attachments/files/32054929/rock-talk.0.3.1.md)
-[OBA-EMPTY-GALLERY.pdf](https://github.com/user-attachments/files/32054932/OBA-EMPTY-GALLERY.pdf)
-[operation_blender_pitch_spec.pdf](https://github.com/user-attachments/files/32054931/operation_blender_pitch_spec.pdf)
-[Workshop_.finalize.resignation.then.collab.with.Blender.Foundation.Issue.46.attogram_found-talks-with-swapfiets.pdf](https://github.com/user-attachments/files/32054933/Workshop_.finalize.resignation.then.collab.with.Blender.Foundation.Issue.46.attogram_found-talks-with-swapfiets.pdf)
-[HOWTO.QUIT.YOUR.DAY.JOB.-.v2.7.Issue.55.attogram_found-talks-with-swapfiets.pdf](https://github.com/user-attachments/files/32054935/HOWTO.QUIT.YOUR.DAY.JOB.-.v2.7.Issue.55.attogram_found-talks-with-swapfiets.pdf)
-[Okay.we.must.write.a.full-on.academic.paper.about.txt](https://github.com/user-attachments/files/32054937/Okay.we.must.write.a.full-on.academic.paper.about.txt)
-[Okay, we must write a full-on academic paper about....odt](https://github.com/user-attachments/files/32054936/Okay.we.must.write.a.full-on.academic.paper.about.odt)
-[attogram-foundation-summary-audit.pdf](https://github.com/user-attachments/files/32054938/attogram-foundation-summary-audit.pdf)
-[Okaywemustwriteafullonacademicpaperabout....html](https://github.com/user-attachments/files/32054939/Okaywemustwriteafullonacademicpaperabout.html)
-[three-leg-study.pdf](https://github.com/user-attachments/files/32054940/three-leg-study.pdf)
-[stress-response-addendum.pdf](https://github.com/user-attachments/files/32054941/stress-response-addendum.pdf)
-[hey-birds-study.pdf](https://github.com/user-attachments/files/32054942/hey-birds-study.pdf)
-[ptg-lifelogging-litreview.pdf](https://github.com/user-attachments/files/32054944/ptg-lifelogging-litreview.pdf)
-[Neurochemistry.of.an.Acute.Social-Threat.Stress.Response_.From.I.pdf](https://github.com/user-attachments/files/32054943/Neurochemistry.of.an.Acute.Social-Threat.Stress.Response_.From.I.pdf)
-[Neurochemistry of an Acute Social-Threat Stress Response_ From I.md](https://github.com/user-attachments/files/32054945/Neurochemistry.of.an.Acute.Social-Threat.Stress.Response_.From.I.md)
-[Pediatric_Health_Communication_Academic_Paper.pdf](https://github.com/user-attachments/files/32054946/Pediatric_Health_Communication_Academic_Paper.pdf)
-[Canine_BioAcoustic_Media_Engineering_Paper.pdf](https://github.com/user-attachments/files/32054947/Canine_BioAcoustic_Media_Engineering_Paper.pdf)
-[AI_Media_Design_Academic_Paper.pdf](https://github.com/user-attachments/files/32054948/AI_Media_Design_Academic_Paper.pdf)
-[blueberry.zenodo.txt](https://github.com/user-attachments/files/32054950/blueberry.zenodo.txt)
+[board.pledge.0002.pdf](../attachments/board.pledge.0002.pdf)
+[p42-control-architecture-v0.2.pdf](../attachments/attachment-a93a5edd056e.pdf)
+[Write a full academic paper about your mistakes. Y... (1).pdf](../attachments/attachment-37f2628a3841.pdf)
+[We need that in the form of an academic paper as i....pdf](../attachments/attachment-aa4c4ba9ae16.pdf)
+[We need a full academic paper on this topic becaus....pdf](../attachments/attachment-a8bb04c0cc53.pdf)
+[I said a full academic paper that was not academic....pdf](../attachments/attachment-3d3cd32e97f1.pdf)
+[The 1960s Movements- Lessons in Law, Strategy, and....pdf](../attachments/attachment-feae715db9ae.pdf)
+[Zenodo_22308897_Review_260904_213436.pdf](../attachments/attachment-0d469dd45a0a.pdf)
+[Zenodo_22308897_Review.pdf](../attachments/Zenodo_22308897_Review.pdf)
+[Neurochemistry of an Acute Social-Threat Stress Response_ From I.pdf](../attachments/attachment-32bb767ac554.pdf)
+[academic_post_mortem_analysis.pdf](../attachments/attachment-9e5671c77739.pdf)
+[That was good except when we made the PDF, the You....pdf](../attachments/attachment-13c201f170f2.pdf)
+[Okay, that's a good format, but you've missed expl....pdf](../attachments/attachment-bd4b7b4e11bd.pdf)
+[Good u pass.  Now a full podcast on provo 42.pdf](../attachments/attachment-2293ea77e11f.pdf)
+[I'll give you a hint. It's on Zenodo under the Roc....pdf](../attachments/attachment-1aa4deda52b1.pdf)
+[We're doing a project called Provo 42. To get into....pdf](../attachments/attachment-4392a5400bbe.pdf)
+[📢 Conclusion_ A Manifesto for the Age of Total Documentation__ PROVO 4.2 is __not just a project__—it is a __provocation ab.PDF](../attachments/attachment-963206a2a0f1.pdf)
+[Cyberpunk Music Video Cost Breakdown & Replication....pdf](../attachments/attachment-95514e1c9499.pdf)
+[rock-talk.0.3.1.md](../attachments/rock-talk.0.3.1.md)
+[OBA-EMPTY-GALLERY.pdf](../attachments/OBA-EMPTY-GALLERY.pdf)
+[operation_blender_pitch_spec.pdf](../attachments/attachment-5ce3c5187562.pdf)
+[Workshop_.finalize.resignation.then.collab.with.Blender.Foundation.Issue.46.attogram_found-talks-with-swapfiets.pdf](../attachments/attachment-8884cff94b73.pdf)
+[HOWTO.QUIT.YOUR.DAY.JOB.-.v2.7.Issue.55.attogram_found-talks-with-swapfiets.pdf](../attachments/attachment-be9a38284dae.pdf)
+[Okay.we.must.write.a.full-on.academic.paper.about.txt](../attachments/attachment-0ac932ef2b99.txt)
+[Okay, we must write a full-on academic paper about....odt](../attachments/attachment-120d3f3a4022.zip)
+[attogram-foundation-summary-audit.pdf](../attachments/attachment-1652d0886f67.pdf)
+[Okaywemustwriteafullonacademicpaperabout....html](../attachments/attachment-b8398f6fffad.html)
+[three-leg-study.pdf](../attachments/three-leg-study.pdf)
+[stress-response-addendum.pdf](../attachments/stress-response-addendum.pdf)
+[hey-birds-study.pdf](../attachments/hey-birds-study.pdf)
+[ptg-lifelogging-litreview.pdf](../attachments/ptg-lifelogging-litreview.pdf)
+[Neurochemistry.of.an.Acute.Social-Threat.Stress.Response_.From.I.pdf](../attachments/attachment-5e14f73aa51e.pdf)
+[Neurochemistry of an Acute Social-Threat Stress Response_ From I.md](../attachments/attachment-454dae25453e.md)
+[Pediatric_Health_Communication_Academic_Paper.pdf](../attachments/attachment-001d7061ca49.pdf)
+[Canine_BioAcoustic_Media_Engineering_Paper.pdf](../attachments/attachment-848a237d65c9.pdf)
+[AI_Media_Design_Academic_Paper.pdf](../attachments/attachment-2193f4547334.pdf)
+[blueberry.zenodo.txt](../attachments/blueberry.zenodo.txt)

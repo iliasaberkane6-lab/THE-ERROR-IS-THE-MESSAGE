@@ -7,7 +7,7 @@
 
 ## Body
 
-https://github.com/user-attachments/assets/7abf40f2-574d-4c00-bf1e-85791d0e953c
+../attachments/attachment-d95a71932308.mp4
 
 ### Comment by attogram at 2026-09-07T11:28:45Z
 

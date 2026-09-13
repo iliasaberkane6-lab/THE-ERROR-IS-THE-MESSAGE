@@ -7,7 +7,7 @@
 
 ## Body
 
-<img width="3000" height="4000" alt="Image" src="https://github.com/user-attachments/assets/17e8428c-e98f-4e1a-9b1b-f8ba926e485d" />
+<img width="3000" height="4000" alt="Image" src="../attachments/attachment-936f73151cfb.jpg" />
 
 From a blood draw gisteren middag....
 

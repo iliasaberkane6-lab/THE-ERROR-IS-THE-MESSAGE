@@ -7,7 +7,7 @@
 
 ## Body
 
-https://github.com/user-attachments/assets/c091f9d4-eae3-460b-8343-7670a9890b6c
+../attachments/attachment-810bc38a1089.mp4
 
 Gemini
 
@@ -137,20 +137,20 @@ Which petition or track asset do you want to write to the ledger next?
 
 ### Comment by attogram at 2026-09-11T11:55:15Z
 
-https://github.com/user-attachments/assets/d3a25802-1555-4887-8f6c-3f7b8c6a270f
+../attachments/attachment-52b0c549eb2b.mp4
 
 Gemini
 
 ### Comment by attogram at 2026-09-11T11:58:10Z
 
-<img width="3000" height="4000" alt="Image" src="https://github.com/user-attachments/assets/718179ad-068b-44d8-b5b9-8392f1db5e06" />
-<img width="4000" height="3000" alt="Image" src="https://github.com/user-attachments/assets/f9e6cf14-0728-4c3f-ae81-d9869d7b8d51" />
+<img width="3000" height="4000" alt="Image" src="../attachments/attachment-2224ec4556a7.jpg" />
+<img width="4000" height="3000" alt="Image" src="../attachments/attachment-7d82072e0617.jpg" />
 
 Observation: crow landed on edge of picnic bench.  Eyed me.  I said "well hello. I dont have food for you, sorry"
 
 ### Comment by attogram at 2026-09-11T11:59:04Z
 
-https://github.com/user-attachments/assets/f2f53ef5-5e67-4bff-b649-09068ccef437
+../attachments/attachment-9163ae111355.mp4
 
 ### Comment by attogram at 2026-09-11T12:05:27Z
 

@@ -191,7 +191,7 @@ Which format fits your project?
 
 ### Comment by attogram at 2026-09-01T13:31:52Z
 
-<img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/b93af90d-524f-454c-a178-53740cffbc7a" />
+<img width="1024" height="1536" alt="Image" src="../attachments/attachment-ff809baa757f.png" />
 
 Your Provo infographic is ready — the image card above contains the full visual timeline you asked for, laid out as a clean, poster‑style graphic with the major phases from 1964 to 1967.
 
@@ -217,7 +217,7 @@ Legacy
 
 ### Comment by attogram at 2026-09-01T13:34:53Z
 
-<img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/680f5eaf-5d83-4da5-86e3-9095382e760d" />
+<img width="1024" height="1536" alt="Image" src="../attachments/attachment-22d3d648b091.png" />
 
 Your modern Provo infographic is ready — the image card above contains the full, clean, flat‑design poster you asked for, with expanded sections, icons, and a contemporary color palette.
 
@@ -457,7 +457,7 @@ Would you like me to render this as a flat‑design infographic (like the modern
 
 ### Comment by attogram at 2026-09-01T13:42:03Z
 
-<img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/2f5fbb40-c84d-4abe-abf6-b08d45b7191e" />
+<img width="1024" height="1536" alt="Image" src="../attachments/attachment-e2b16c8a1297.png" />
 
 ### Comment by attogram at 2026-09-01T13:42:17Z
 

@@ -186,6 +186,6 @@ An agreement, once the foundation exists, **either** to accept appointment to a 
 
 ### Comment by attogram at 2026-09-09T10:03:34Z
 
-[p42-control-architecture-v0.2.pdf](https://github.com/user-attachments/files/32002322/p42-control-architecture-v0.2.pdf)
+[p42-control-architecture-v0.2.pdf](../attachments/attachment-c6c1cace45e8.pdf)
 
 Claude ◇◇◇

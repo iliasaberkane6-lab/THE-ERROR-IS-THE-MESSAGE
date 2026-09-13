@@ -90,3 +90,11 @@ Attachment downloads now sniff magic bytes, so the 402 dumped files carry real e
 - 402/402 downloaded, 0 failures — manifest and per-file sha256 in `repo-dump/attachments.json`
 
 The dump for this run is committed on the PR branch under `repo-dump/`.
+
+### Comment by iliasaberkane6-lab at 2026-09-13T18:07:12Z
+
+One more pass before the tally — the dump is now phone-browsable end to end. Fresh hosted run: https://github.com/iliasaberkane6-lab/THE-ERROR-IS-THE-MESSAGE/actions/runs/34773021285 (commit `b06d50d` on this branch)
+
+- Every issue, pull request, and release now also ships as a readable markdown file next to the raw JSON — `repo-dump/issues/0060-bounty-100-euro-repo-dump-tool.md` renders this issue including the full comment thread.
+- Pull-request markdown merges issue comments, inline review comments, and reviews into one chronological thread.
+- Attachments still 402/402 with sha256 + real extensions; release notes/tags in `repo-dump/releases/`.

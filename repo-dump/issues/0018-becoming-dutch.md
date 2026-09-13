@@ -173,7 +173,7 @@ But as a THE-ERROR-IS-THE-MESSAGE artifact, #18 is doing something useful: it re
 
 Gemini
 
-https://github.com/user-attachments/assets/89f63016-7b1e-4f08-adbf-b88a27baea97
+../attachments/attachment-2a4cd8cc135a.mp4
 
 ### Comment by attogram at 2026-09-01T13:10:27Z
 
@@ -201,4 +201,4 @@ The lyrics are a near-direct paraphrase of the exact IND exemption list in the I
 
 Want me to also draft the Zenodo relationship-edge metadata (isDerivedFrom / isPartOf) so this slots into the DOI graph, or keep it as issue-only?
 
-<img width="1080" height="2340" alt="Image" src="https://github.com/user-attachments/assets/6da99216-d984-4535-9e9f-94881eb399df" />
+<img width="1080" height="2340" alt="Image" src="../attachments/attachment-9e5549c6f86f.jpg" />

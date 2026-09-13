@@ -7,10 +7,10 @@
 
 ## Body
 
-<img width="1376" height="768" alt="Image" src="https://github.com/user-attachments/assets/1ce849e1-c6fd-4687-af8d-ca32fcb485b5" />
-<img width="1376" height="768" alt="Image" src="https://github.com/user-attachments/assets/eee7d590-9fe2-4314-885b-9cdc2e0746e8" />
-<img width="1376" height="768" alt="Image" src="https://github.com/user-attachments/assets/f66a8844-1fe4-4e99-86fc-484e7b8b7a76" />
-<img width="1376" height="768" alt="Image" src="https://github.com/user-attachments/assets/f05338ef-ccd0-4c01-8c81-dc4aa8f5adf7" />
+<img width="1376" height="768" alt="Image" src="../attachments/attachment-ced02f7e599a.png" />
+<img width="1376" height="768" alt="Image" src="../attachments/attachment-6098ac6f45fd.png" />
+<img width="1376" height="768" alt="Image" src="../attachments/attachment-d2aaa202c009.png" />
+<img width="1376" height="768" alt="Image" src="../attachments/attachment-bd0f46a45c32.png" />
 
 ### Comment by attogram at 2026-09-11T13:32:39Z
 
@@ -156,6 +156,6 @@ Synthesizing the above, Anchor Crow's novelty is not any single element (dual ma
 
 ### Comment by attogram at 2026-09-11T14:03:48Z
 
-[Anchor Crow_ Cultural, Mythological, and Methodological Foundati.md](https://github.com/user-attachments/files/32107757/Anchor.Crow_.Cultural.Mythological.and.Methodological.Foundati.md)
+[Anchor Crow_ Cultural, Mythological, and Methodological Foundati.md](../attachments/attachment-66c3db82d658.md)
 
-[Anchor Crow_ Cultural, Mythological, and Methodological Foundati.pdf](https://github.com/user-attachments/files/32107758/Anchor.Crow_.Cultural.Mythological.and.Methodological.Foundati.pdf)
+[Anchor Crow_ Cultural, Mythological, and Methodological Foundati.pdf](../attachments/attachment-3d6dc1a9b7e7.pdf)

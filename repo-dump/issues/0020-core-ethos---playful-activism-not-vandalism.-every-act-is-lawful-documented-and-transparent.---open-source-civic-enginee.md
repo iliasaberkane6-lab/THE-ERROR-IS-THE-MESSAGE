@@ -123,7 +123,7 @@ Would you like me to format this next as a visual manifesto poster — minimalis
 
 ### Comment by attogram at 2026-09-01T13:45:29Z
 
-<img width="1408" height="768" alt="Image" src="https://github.com/user-attachments/assets/51f9d6a8-f683-40ef-b054-56d3c42763ee" />
+<img width="1408" height="768" alt="Image" src="../attachments/attachment-0457f2d9bf37.png" />
 
 ### Comment by attogram at 2026-09-01T13:45:48Z
 
@@ -166,7 +166,7 @@ If you want, I can now fold this into your full manifesto, or craft a Piaf‑ins
 
 ### Comment by attogram at 2026-09-01T13:46:58Z
 
-<img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/17eda6ba-0c70-490e-8a3e-760160d8d15a" />
+<img width="1024" height="1536" alt="Image" src="../attachments/attachment-f0415e493a99.png" />
 
 ### Comment by attogram at 2026-09-01T13:49:02Z
 
@@ -213,40 +213,40 @@ Tell me: are you logging their interactions with the bikes or mapping their terr
 
 ### Comment by attogram at 2026-09-01T13:50:49Z
 
-https://github.com/user-attachments/assets/5157973a-82cf-40a5-92da-0254b8485747
+../attachments/attachment-ca846f6746c7.mp4
 
-<img width="4000" height="3000" alt="Image" src="https://github.com/user-attachments/assets/d7cdf42a-79fc-48f5-8f2a-2c1775ed891b" />
+<img width="4000" height="3000" alt="Image" src="../attachments/attachment-d8c4bb82f2d2.jpg" />
 
-<img width="3000" height="4000" alt="Image" src="https://github.com/user-attachments/assets/dbe36a20-a0dc-4b2d-8473-fb4120750787" />
+<img width="3000" height="4000" alt="Image" src="../attachments/attachment-010ece624af8.jpg" />
 
-<img width="3000" height="4000" alt="Image" src="https://github.com/user-attachments/assets/d17c3f2a-d2d2-4d8b-81fb-09acf3283c93" />
-<img width="3000" height="4000" alt="Image" src="https://github.com/user-attachments/assets/4a69bf8b-31c2-4eb2-8876-adf8e1cc68bd" />
-<img width="3000" height="4000" alt="Image" src="https://github.com/user-attachments/assets/402c7d7b-112d-43c4-a8c7-d62b8ccc54f4" />
+<img width="3000" height="4000" alt="Image" src="../attachments/attachment-59a86a0abd83.jpg" />
+<img width="3000" height="4000" alt="Image" src="../attachments/attachment-57d4ab24df81.jpg" />
+<img width="3000" height="4000" alt="Image" src="../attachments/attachment-f400243190f5.jpg" />
 
-https://github.com/user-attachments/assets/5e2ed7f2-4fe6-434c-aded-b10dab197433
+../attachments/attachment-1b63bd2aa1d0.mp4
 
-<img width="3000" height="4000" alt="Image" src="https://github.com/user-attachments/assets/2aa91128-2bc3-41cc-b29f-33dd2f84313b" />
+<img width="3000" height="4000" alt="Image" src="../attachments/attachment-53423c902ef4.jpg" />
 
 ### Comment by attogram at 2026-09-01T13:52:36Z
 
-https://github.com/user-attachments/assets/b4caa575-286d-4714-99d1-ee58d7b31f9e
+../attachments/attachment-31a0e20ec7cd.mp4
 
-https://github.com/user-attachments/assets/cb8c6269-18e1-40d9-a2bd-5766e61fe999
+../attachments/attachment-e3a4261db8d7.mp4
 
-https://github.com/user-attachments/assets/65e86baf-cb33-4f76-874c-2cc6c058cb3d
+../attachments/attachment-a4ec86203484.mp4
 
-https://github.com/user-attachments/assets/deafcf87-a07a-4ff2-a28e-ea8aa6cd4dac
+../attachments/attachment-40f3f76e4730.mp4
 
-https://github.com/user-attachments/assets/a8e70913-c2f3-4fc1-9ecd-af47705f81df
+../attachments/attachment-785c3409c280.mp4
 
-https://github.com/user-attachments/assets/7e35a519-311d-492a-9705-59afbc0b57f7
+../attachments/attachment-0f53a8950fdc.mp4
 
-https://github.com/user-attachments/assets/9185bccd-ddd0-430c-9e89-8497ed69580e
+../attachments/attachment-82bd5c31c898.mp4
 
-https://github.com/user-attachments/assets/23f2216c-3dad-4157-804e-abe46601dc30
+../attachments/attachment-2b4a9a5fda08.mp4
 
-https://github.com/user-attachments/assets/059a6d4d-b61a-408e-a5c0-852d26dbe4a2
+../attachments/attachment-2ab101c8ff7f.mp4
 
-https://github.com/user-attachments/assets/c1603671-ad48-45a5-a158-0c392c0efe7b
+../attachments/attachment-0010b0e75bc3.mp4
 
-https://github.com/user-attachments/assets/a066f8ae-2647-4043-b3da-9a14c86bc3fe
+../attachments/attachment-f02030a7ff71.mp4

@@ -24,18 +24,18 @@ The prompt you gave was completely clear, valid, and previously proven to work i
 
 ### Comment by attogram at 2026-09-01T11:49:21Z
 
-https://github.com/user-attachments/assets/b2e1e154-f8d0-43f4-adf1-ce8e01ec53fb
+../attachments/attachment-6885df3e355b.mp4
 
-https://github.com/user-attachments/assets/0ba32c99-0c39-4442-a52a-63cc9cd90802
+../attachments/attachment-e67bf2823e91.mp4
 
-https://github.com/user-attachments/assets/ca192f49-229b-433b-b3c8-536e569b2ba8
+../attachments/attachment-c8bb5065d016.mp4
 
-https://github.com/user-attachments/assets/5ef713b6-709c-4107-980f-fa20f527f2ce
+../attachments/attachment-9abc696e0729.mp4
 
-https://github.com/user-attachments/assets/717edd1d-81da-4555-966e-8f21f435eb23
+../attachments/attachment-f99d06b870f2.mp4
 
-https://github.com/user-attachments/assets/d835913a-6088-4798-b476-cb2915d7d8f4
+../attachments/attachment-9561dbee7e54.mp4
 
-https://github.com/user-attachments/assets/d93f53f3-b3fb-4551-a49a-33a98d916b3f
+../attachments/attachment-21f2b9853287.mp4
 
-https://github.com/user-attachments/assets/1edd05a5-0bcb-43de-9555-4ca651308d2a
+../attachments/attachment-dcff57ce92cf.mp4

@@ -7,10 +7,10 @@
 
 ## Body
 
-https://github.com/user-attachments/assets/be1922ca-1aa9-42ae-b769-af7b19c2d85e
+../attachments/attachment-5f5bb2e6e44a.mp4
 
 
-<img width="1376" height="768" alt="Image" src="https://github.com/user-attachments/assets/503ff170-c758-48eb-b7fc-bb6c451d59a1" />
+<img width="1376" height="768" alt="Image" src="../attachments/attachment-375abfa7b16b.png" />
 
 <message-content><p>Here is a comprehensive, long-form academic study on <strong><em>Aggretsuko</em></strong> (<em>Aggressive Retsuko</em>), analyzing its origins, socio-cultural implications, domestic reception in Japan, global resonance on Netflix, and its legacy in modern media.</p>
 <h1><strong>The Dual Existence of the Corporate Mascot: A Socio-Cultural Analysis of <em>Aggretsuko</em></strong></h1>
@@ -85,13 +85,13 @@ Key Relatability | Workplace etiquette (Nomikai, hierarchical bowing) | Imposter
 
 ### Comment by attogram at 2026-09-09T07:57:10Z
 
-[That was awesome. Can you do like a full academic ....pdf](https://github.com/user-attachments/files/31996616/That.was.awesome.Can.you.do.like.a.full.academic.pdf)
+[That was awesome. Can you do like a full academic ....pdf](../attachments/attachment-65709fb8dfe1.pdf)
 
-<img width="1376" height="768" alt="Image" src="https://github.com/user-attachments/assets/411d4e79-33e4-4f2d-8b76-aa3812dab104" />
+<img width="1376" height="768" alt="Image" src="../attachments/attachment-170a651285b3.png" />
 
-<img width="1376" height="768" alt="Image" src="https://github.com/user-attachments/assets/93741e20-debb-40b7-b6c4-26d7a4982f1c" />
-<img width="1376" height="768" alt="Image" src="https://github.com/user-attachments/assets/2712296d-5d4a-4815-ae44-4ccfeb8ada8e" />
-<img width="1376" height="768" alt="Image" src="https://github.com/user-attachments/assets/7d65f5b6-9743-43b5-b3a1-b64c05020e67" />
+<img width="1376" height="768" alt="Image" src="../attachments/attachment-1db81c7691dd.png" />
+<img width="1376" height="768" alt="Image" src="../attachments/attachment-147b0c5bbc5d.png" />
+<img width="1376" height="768" alt="Image" src="../attachments/attachment-2aab8d9dbb06.png" />
 
 ### Comment by attogram at 2026-09-09T07:59:00Z
 

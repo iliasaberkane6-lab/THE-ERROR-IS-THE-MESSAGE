@@ -746,7 +746,7 @@ What direction feels right?
 
 ### Comment by attogram at 2026-09-01T07:06:36Z
 
-<img width="1080" height="2340" alt="Image" src="https://github.com/user-attachments/assets/139a96a9-1ca0-400a-af3c-39def732ba51" />
+<img width="1080" height="2340" alt="Image" src="../attachments/attachment-b6caa39c9956.jpg" />
 
 ### Comment by attogram at 2026-09-01T07:13:02Z
 
@@ -993,7 +993,7 @@ Now go buy more peanuts. 🐦‍⬛🥜
 
 Deepseek: 
 
-<img width="1080" height="2340" alt="Image" src="https://github.com/user-attachments/assets/ccc1f584-38d5-4fa2-9611-c97dce167c11" />
+<img width="1080" height="2340" alt="Image" src="../attachments/attachment-a59dc6a4a671.jpg" />
 
 ### Comment by attogram at 2026-09-01T07:44:58Z
 
