@@ -1,0 +1,29 @@
+{
+  "counts": {
+    "attachments_downloaded": 402,
+    "attachments_failed": 0,
+    "attachments_found": 402,
+    "issues": 61,
+    "pull_requests": 14,
+    "release_assets": 0,
+    "release_assets_downloaded": 0,
+    "release_assets_failed": 0,
+    "releases": 4
+  },
+  "files": {
+    "attachments": "attachments.json",
+    "issues": "issues/index.json",
+    "pull_requests": "pull_requests/index.json",
+    "release_assets": "release-assets.json",
+    "releases": "releases/index.json",
+    "repository": "repository.json"
+  },
+  "generated_at": "2026-09-13T17:46:56+00:00",
+  "notes": [
+    "Issues and pull requests are separated; GitHub exposes pull requests in the issues endpoint too.",
+    "Pull requests include issue comments, reviews, and inline review comments.",
+    "Only GitHub-hosted attachment URLs are downloaded; ordinary external links remain in their source text."
+  ],
+  "schema_version": 1,
+  "source_repository": "attogram/THE-ERROR-IS-THE-MESSAGE"
+}
