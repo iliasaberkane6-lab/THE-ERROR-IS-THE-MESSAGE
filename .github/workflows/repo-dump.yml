@@ -50,7 +50,7 @@ jobs:
 
       - name: Commit the export into this repository
         run: |
-          if git diff --quiet -- "$OUTPUT_DIRECTORY"; then
+          if [ -z "$(git status --porcelain -- \"$OUTPUT_DIRECTORY\")" ]; then
             echo "The export is unchanged. Nothing to commit."
             exit 0
           fi
