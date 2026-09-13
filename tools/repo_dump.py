@@ -201,13 +201,67 @@ def text_values(value: Any) -> Iterable[str]:
             yield from text_values(child)
 
 
-def attachment_name(url: str, content_type: str | None) -> str:
+def sniff_extension(body: bytes) -> str | None:
+    """Best-effort file-type detection from magic bytes."""
+
+    if body.startswith(b"\xff\xd8\xff"):
+        return ".jpg"
+    if body.startswith(b"\x89PNG\r\n\x1a\n"):
+        return ".png"
+    if body.startswith(b"GIF8"):
+        return ".gif"
+    if body.startswith(b"%PDF"):
+        return ".pdf"
+    if body.startswith(b"PK\x03\x04") or body.startswith(b"PK\x05\x06"):
+        return ".zip"
+    if body.startswith(b"\x1f\x8b"):
+        return ".gz"
+    if body.startswith(b"ID3") or body[:2] in {b"\xff\xfb", b"\xff\xf3", b"\xff\xf2"}:
+        return ".mp3"
+    if body.startswith(b"OggS"):
+        return ".ogg"
+    if body.startswith(b"fLaC"):
+        return ".flac"
+    if body.startswith(b"\x1aE\xdf\xa3"):
+        return ".webm"
+    if body[:4] == b"RIFF" and body[8:12] == b"WEBP":
+        return ".webp"
+    if body[:4] == b"RIFF" and body[8:12] == b"WAVE":
+        return ".wav"
+    if body[:4] in {b"II*\x00", b"MM\x00*"}:
+        return ".tif"
+    if body[4:8] == b"ftyp":
+        return ".mp4"
+    return None
+
+
+def looks_like_text(body: bytes) -> bool:
+    if not body:
+        return False
+    sample = body[:8192]
+    if b"\x00" in sample:
+        return False
+    try:
+        sample.decode("utf-8")
+    except UnicodeDecodeError:
+        return False
+    return True
+
+
+def attachment_name(url: str, content_type: str | None, body: bytes = b"") -> str:
     parsed = urlparse(url)
     basename = safe_name(Path(parsed.path).name, "attachment")
     # UUID-only attachment URLs have no useful filename.  Keep a stable name
-    # so a rerun does not create duplicate files.
+    # so a rerun does not create duplicate files.  The CDN usually reports a
+    # generic octet-stream content type, so sniff the payload first: dumped
+    # media then carries a real extension and opens directly from the repo.
     if basename in {"assets", "files", "attachment"} or len(basename) >= 30:
-        extension = mimetypes.guess_extension((content_type or "").split(";", 1)[0]) or ".bin"
+        mime = (content_type or "").split(";", 1)[0].strip().lower()
+        extension = sniff_extension(body)
+        if extension is None and mime in {"", "application/octet-stream", "binary/octet-stream"} and looks_like_text(body):
+            extension = ".txt"
+        if extension is None:
+            extension = mimetypes.guess_extension(mime) or ".bin"
         basename = f"attachment-{hashlib.sha256(url.encode()).hexdigest()[:12]}{extension}"
     return basename
 
@@ -237,7 +291,7 @@ def download_attachments(
             body, content_type = client.bytes(url)
             if len(body) > max_bytes:
                 raise RuntimeError(f"attachment exceeds {max_bytes} byte limit")
-            name = attachment_name(url, content_type)
+            name = attachment_name(url, content_type, body)
             stem, suffix = os.path.splitext(name)
             candidate = name
             counter = 2

@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from tools.repo_dump import GitHubClient, attachment_urls, export_repository, parse_repository
+from tools.repo_dump import GitHubClient, attachment_name, attachment_urls, export_repository, parse_repository
 
 
 class FakeClient(GitHubClient):
@@ -45,6 +45,27 @@ class RepoDumpTests(unittest.TestCase):
                 "https://user-images.githubusercontent.com/1/2/image.png",
             ],
         )
+
+    def test_attachment_name_sniffs_magic_bytes_for_uuid_urls(self):
+        uuid_url = "https://github.com/user-attachments/assets/8210eda6-f708-448a-8ca3-515bc00d1edc"
+        self.assertTrue(
+            attachment_name(uuid_url, "application/octet-stream", b"\x89PNG\r\n\x1a\n" + b"x" * 32).endswith(".png")
+        )
+        self.assertTrue(
+            attachment_name(uuid_url, "application/octet-stream", b"xxxx" + b"ftyp" + b"isom" + b"y" * 32).endswith(".mp4")
+        )
+        self.assertTrue(
+            attachment_name(uuid_url, "application/octet-stream", b"%PDF-1.7 body").endswith(".pdf")
+        )
+        self.assertTrue(
+            attachment_name(uuid_url, "application/octet-stream", b"just some text").endswith(".txt")
+        )
+        self.assertTrue(
+            attachment_name(uuid_url, "application/octet-stream", b"\x00\x01\x02\x03binary").endswith(".bin")
+        )
+        # A real filename in the URL always wins over sniffed content.
+        named = "https://github.com/user-attachments/files/32157681/bounty.repo.dump.0001.pdf"
+        self.assertEqual(attachment_name(named, "application/octet-stream", b"anything"), "bounty.repo.dump.0001.pdf")
 
     def test_attachment_download_does_not_send_api_token_to_signed_cdn(self):
         client = GitHubClient(token="secret-token")
