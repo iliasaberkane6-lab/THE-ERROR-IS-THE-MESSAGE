@@ -9,9 +9,13 @@ repository's history in another repository. It exports:
 - GitHub-hosted images, files, and media linked from issue, pull-request, and release text.
 
 The result is written to a deterministic folder with JSON indexes and a
-`manifest.json`. External links are kept in their original text but are not
-downloaded, so an arbitrary link in a discussion cannot make the workflow
-fetch unrelated content.
+`manifest.json`. Every issue, pull request, and release is additionally
+rendered as a readable markdown file next to the raw JSON, so the archive
+can be browsed directly in the repository on a phone. Downloaded
+attachments keep their real file extensions (detected from the payload, not
+just headers), so media opens directly from the dump. External links are
+kept in their original text but are not downloaded, so an arbitrary link in
+a discussion cannot make the workflow fetch unrelated content.
 
 ## Mobile-friendly workflow
 

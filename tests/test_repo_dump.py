@@ -127,6 +127,13 @@ class RepoDumpTests(unittest.TestCase):
                 "https://github.com/user-attachments/assets/12345678-1234-1234-1234-123456789abc",
             )
             self.assertEqual(pulls["items"][0]["review_comments"][0]["body"], "review comment")
+            issue_md = list((Path(temp_dir) / "issues").glob("0001-*.md"))
+            self.assertEqual(len(issue_md), 1)
+            self.assertIn("issue body", issue_md[0].read_text())
+            pull_md = list((Path(temp_dir) / "pull_requests").glob("0002-*.md"))
+            self.assertEqual(len(pull_md), 1)
+            self.assertIn("review comment", pull_md[0].read_text())
+            self.assertTrue((Path(temp_dir) / "releases/v1.md").exists())
 
 
 if __name__ == "__main__":

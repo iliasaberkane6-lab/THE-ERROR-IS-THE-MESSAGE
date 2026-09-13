@@ -190,6 +190,94 @@ def enrich_pull_request(client: GitHubClient, repo_path: str, pull: dict[str, An
     return detail
 
 
+def fmt_user(value: Any) -> str:
+    return (value or {}).get("login") or "unknown"
+
+
+def render_thread_markdown(kind: str, item: dict[str, Any], comments: list[dict[str, Any]]) -> str:
+    lines = [
+        f"# {kind} #{item.get('number')}: {item.get('title') or '(untitled)'}",
+        "",
+        f"- State: {item.get('state')}",
+        f"- Author: {fmt_user(item.get('user'))}",
+        f"- Created: {item.get('created_at')}",
+        f"- URL: {item.get('html_url')}",
+        "",
+        "## Body",
+        "",
+        (item.get("body") or "").strip() or "(empty)",
+        "",
+    ]
+    for comment in comments:
+        lines.extend(
+            [
+                f"### Comment by {fmt_user(comment.get('user'))} at {comment.get('created_at')}",
+                "",
+                (comment.get("body") or "").strip() or "(empty)",
+                "",
+            ]
+        )
+    return "\n".join(lines)
+
+
+def write_issue_markdown(output: Path, issues: Iterable[dict[str, Any]]) -> None:
+    folder = output / "issues"
+    folder.mkdir(parents=True, exist_ok=True)
+    for issue in issues:
+        slug = safe_name(str(issue.get("title") or "issue"), "issue").lower()
+        path = folder / f"{issue.get('number'):04d}-{slug}.md"
+        path.write_text(
+            render_thread_markdown("Issue", issue, issue.get("comments_data") or []),
+            encoding="utf-8",
+        )
+
+
+def write_pull_markdown(output: Path, pulls: Iterable[dict[str, Any]]) -> None:
+    folder = output / "pull_requests"
+    folder.mkdir(parents=True, exist_ok=True)
+    for pull in pulls:
+        slug = safe_name(str(pull.get("title") or "pull-request"), "pull-request").lower()
+        path = folder / f"{pull.get('number'):04d}-{slug}.md"
+        comments = [
+            *(pull.get("issue_comments") or []),
+            *(pull.get("review_comments") or []),
+            *(pull.get("reviews") or []),
+        ]
+        comments.sort(key=lambda comment: comment.get("created_at") or "")
+        path.write_text(
+            render_thread_markdown("Pull request", pull, comments),
+            encoding="utf-8",
+        )
+
+
+def write_release_markdown(output: Path, releases: Iterable[dict[str, Any]]) -> None:
+    folder = output / "releases"
+    folder.mkdir(parents=True, exist_ok=True)
+    for release in releases:
+        tag = safe_name(str(release.get("tag_name") or release.get("id") or "release"), "release")
+        lines = [
+            f"# Release {release.get('tag_name') or release.get('name') or release.get('id')}",
+            "",
+            f"- Name: {release.get('name')}",
+            f"- Tag: {release.get('tag_name')}",
+            f"- Author: {fmt_user(release.get('author'))}",
+            f"- Published: {release.get('published_at')}",
+            f"- URL: {release.get('html_url')}",
+            "",
+            "## Notes",
+            "",
+            (release.get("body") or "").strip() or "(empty)",
+            "",
+            "## Artifacts",
+            "",
+        ]
+        for asset in release.get("assets") or []:
+            lines.append(f"- {asset.get('name')} ({asset.get('size')} bytes): {asset.get('browser_download_url')}")
+        if not release.get("assets"):
+            lines.append("- (none)")
+        (folder / f"{tag}.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 def text_values(value: Any) -> Iterable[str]:
     if isinstance(value, str):
         yield value
@@ -395,6 +483,10 @@ def export_repository(
     write_json(output / "repository.json", repository)
     write_json(output / "issues" / "index.json", {"count": len(issue_records), "items": issue_records})
     write_json(output / "pull_requests" / "index.json", {"count": len(pull_records), "items": pull_records})
+    # Readable markdown copies next to the raw JSON so the archive can be
+    # browsed directly on a phone inside the repository.
+    write_issue_markdown(output, issue_records)
+    write_pull_markdown(output, pull_records)
 
     release_records: list[dict[str, Any]] = []
     release_assets: list[dict[str, Any]] = []
@@ -412,6 +504,7 @@ def export_repository(
             for asset in assets
         )
     write_json(output / "releases" / "index.json", {"count": len(release_records), "items": release_records})
+    write_release_markdown(output, release_records)
 
     records_for_attachments: list[dict[str, Any]] = [*issue_records, *pull_records, *release_records]
     if include_attachments:
@@ -449,6 +542,7 @@ def export_repository(
         "notes": [
             "Issues and pull requests are separated; GitHub exposes pull requests in the issues endpoint too.",
             "Pull requests include issue comments, reviews, and inline review comments.",
+            "Each issue, pull request, and release is also rendered as a readable markdown file next to the raw JSON.",
             "Only GitHub-hosted attachment URLs are downloaded; ordinary external links remain in their source text.",
         ],
     }
