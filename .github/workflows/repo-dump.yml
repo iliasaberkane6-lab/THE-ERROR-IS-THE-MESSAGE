@@ -1,0 +1,61 @@
+name: Dump a GitHub repository
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_repository:
+        description: "Repository to export (OWNER/REPOSITORY)"
+        required: true
+        default: "attogram/THE-ERROR-IS-THE-MESSAGE"
+        type: string
+      output_directory:
+        description: "Directory in this repository where the export is committed"
+        required: true
+        default: "repo-dump"
+        type: string
+      include_attachments:
+        description: "Download GitHub-hosted images, files, and media"
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SOURCE_REPOSITORY: ${{ inputs.source_repository }}
+      OUTPUT_DIRECTORY: ${{ inputs.output_directory }}
+      INCLUDE_ATTACHMENTS: ${{ inputs.include_attachments }}
+    steps:
+      - name: Check out the destination repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Export issues, pull requests, releases, and attachments
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: >-
+          python tools/repo_dump.py "$SOURCE_REPOSITORY" "$OUTPUT_DIRECTORY"
+          $([ "$INCLUDE_ATTACHMENTS" = "true" ] || echo --no-attachments)
+
+      - name: Commit the export into this repository
+        run: |
+          if git diff --quiet -- "$OUTPUT_DIRECTORY"; then
+            echo "The export is unchanged. Nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$OUTPUT_DIRECTORY"
+          git commit -m "chore: dump $SOURCE_REPOSITORY"
+          git push

@@ -1,0 +1,414 @@
+#!/usr/bin/env python3
+"""Export a GitHub repository into a reviewable, self-contained folder.
+
+The exporter intentionally uses only the Python standard library.  It is
+designed to run from GitHub Actions, so a mobile user only has to start the
+workflow and choose the source repository.
+"""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import mimetypes
+import os
+import re
+import sys
+import time
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any, Iterable
+from urllib.error import HTTPError, URLError
+from urllib.parse import urlencode, urlparse
+from urllib.request import Request, urlopen
+
+
+API_ROOT = "https://api.github.com"
+PAGE_SIZE = 100
+CHUNK_SIZE = 1024 * 1024
+DEFAULT_MAX_ATTACHMENT_BYTES = 512 * 1024 * 1024
+
+
+def utc_now() -> str:
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+
+
+def parse_repository(value: str) -> tuple[str, str]:
+    value = value.strip().removesuffix("/")
+    if value.startswith("https://github.com/"):
+        value = value.removeprefix("https://github.com/")
+    if value.startswith("http://github.com/"):
+        value = value.removeprefix("http://github.com/")
+    parts = [part for part in value.split("/") if part]
+    if len(parts) != 2 or any(part in {".", ".."} for part in parts):
+        raise ValueError("source_repository must be OWNER/REPOSITORY or a GitHub URL")
+    return parts[0], parts[1]
+
+
+def safe_name(value: str, fallback: str = "item") -> str:
+    value = re.sub(r"[^A-Za-z0-9._-]+", "-", value).strip(".-_")
+    return value[:120] or fallback
+
+
+def write_json(path: Path, value: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+
+
+def validate_output_path(output: Path, require_relative: bool = False) -> None:
+    """Keep workflow input from escaping the checked-out destination repo."""
+
+    if (require_relative and output.is_absolute()) or output in {Path("."), Path("")} or ".." in output.parts:
+        raise ValueError("output must be a relative directory inside the checked-out repository")
+
+
+def attachment_urls(value: str | None) -> list[str]:
+    """Return only GitHub-hosted attachment URLs, never arbitrary links."""
+
+    if not value:
+        return []
+    candidates = re.findall(r"https?://[^\s<>\"']+", value)
+    found: list[str] = []
+    for candidate in candidates:
+        candidate = candidate.rstrip(".,;:!?)]}")
+        parsed = urlparse(candidate)
+        host = parsed.netloc.lower().split(":", 1)[0]
+        path = parsed.path
+        is_user_attachment = host == "github.com" and (
+            path.startswith("/user-attachments/assets/")
+            or path.startswith("/user-attachments/files/")
+        )
+        is_repo_attachment = (
+            host == "github.com"
+            and len([part for part in path.split("/") if part]) >= 4
+            and ("/assets/" in path or "/files/" in path)
+        )
+        is_legacy_attachment = host in {
+            "user-images.githubusercontent.com",
+            "private-user-images.githubusercontent.com",
+        }
+        if (is_user_attachment or is_repo_attachment or is_legacy_attachment) and candidate not in found:
+            found.append(candidate)
+    return found
+
+
+class GitHubClient:
+    def __init__(self, token: str | None = None, api_root: str = API_ROOT) -> None:
+        self.token = token or os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+        self.api_root = api_root.rstrip("/")
+
+    def _request(self, url: str, accept: str = "application/vnd.github+json") -> tuple[bytes, dict[str, str]]:
+        headers = {
+            "Accept": accept,
+            "User-Agent": "repository-dump-tool/1.0",
+        }
+        if self.token:
+            headers["Authorization"] = f"Bearer {self.token}"
+        request = Request(url, headers=headers)
+        for attempt in range(4):
+            try:
+                with urlopen(request, timeout=60) as response:
+                    return response.read(), {key.lower(): value for key, value in response.headers.items()}
+            except HTTPError as error:
+                if error.code not in {429, 500, 502, 503, 504} or attempt == 3:
+                    detail = error.read(4096).decode("utf-8", errors="replace")
+                    raise RuntimeError(f"GitHub request failed ({error.code}) for {url}: {detail[:500]}") from error
+            except URLError as error:
+                if attempt == 3:
+                    raise RuntimeError(f"GitHub request failed for {url}: {error}") from error
+            time.sleep(2**attempt)
+        raise RuntimeError(f"GitHub request failed for {url}")
+
+    def json(self, path: str) -> Any:
+        url = path if path.startswith("http") else f"{self.api_root}{path}"
+        body, _ = self._request(url)
+        return json.loads(body.decode("utf-8"))
+
+    def all(self, path: str) -> list[Any]:
+        separator = "&" if "?" in path else "?"
+        page = 1
+        values: list[Any] = []
+        while True:
+            page_path = f"{path}{separator}{urlencode({'per_page': PAGE_SIZE, 'page': page})}"
+            payload = self.json(page_path)
+            if not isinstance(payload, list):
+                raise RuntimeError(f"Expected a list from {page_path}")
+            values.extend(payload)
+            if len(payload) < PAGE_SIZE:
+                return values
+            page += 1
+
+    def bytes(self, url: str) -> tuple[bytes, str | None]:
+        body, headers = self._request(url, accept="application/octet-stream")
+        return body, headers.get("content-type")
+
+
+def issue_has_pull_request(issue: dict[str, Any]) -> bool:
+    return bool(issue.get("pull_request"))
+
+
+def enrich_issue(client: GitHubClient, repo_path: str, issue: dict[str, Any]) -> dict[str, Any]:
+    number = issue["number"]
+    detail = client.json(f"/repos/{repo_path}/issues/{number}")
+    detail["comments_data"] = client.all(f"/repos/{repo_path}/issues/{number}/comments")
+    return detail
+
+
+def enrich_pull_request(client: GitHubClient, repo_path: str, pull: dict[str, Any]) -> dict[str, Any]:
+    number = pull["number"]
+    detail = client.json(f"/repos/{repo_path}/pulls/{number}")
+    detail["issue_comments"] = client.all(f"/repos/{repo_path}/issues/{number}/comments")
+    detail["review_comments"] = client.all(f"/repos/{repo_path}/pulls/{number}/comments")
+    detail["reviews"] = client.all(f"/repos/{repo_path}/pulls/{number}/reviews")
+    return detail
+
+
+def text_values(value: Any) -> Iterable[str]:
+    if isinstance(value, str):
+        yield value
+    elif isinstance(value, dict):
+        for child in value.values():
+            yield from text_values(child)
+    elif isinstance(value, list):
+        for child in value:
+            yield from text_values(child)
+
+
+def attachment_name(url: str, content_type: str | None) -> str:
+    parsed = urlparse(url)
+    basename = safe_name(Path(parsed.path).name, "attachment")
+    # UUID-only attachment URLs have no useful filename.  Keep a stable name
+    # so a rerun does not create duplicate files.
+    if basename in {"assets", "files", "attachment"} or len(basename) >= 30:
+        extension = mimetypes.guess_extension((content_type or "").split(";", 1)[0]) or ".bin"
+        basename = f"attachment-{hashlib.sha256(url.encode()).hexdigest()[:12]}{extension}"
+    return basename
+
+
+def download_attachments(
+    client: GitHubClient,
+    output: Path,
+    records: Iterable[dict[str, Any]],
+    max_bytes: int,
+) -> list[dict[str, Any]]:
+    urls: list[str] = []
+    for record in records:
+        for text in text_values(record):
+            for url in attachment_urls(text):
+                if url not in urls:
+                    urls.append(url)
+
+    attachment_dir = output / "attachments"
+    attachment_dir.mkdir(parents=True, exist_ok=True)
+    results: list[dict[str, Any]] = []
+    used_names: set[str] = set()
+    for url in urls:
+        item: dict[str, Any] = {"url": url, "status": "failed"}
+        try:
+            body, content_type = client.bytes(url)
+            if len(body) > max_bytes:
+                raise RuntimeError(f"attachment exceeds {max_bytes} byte limit")
+            name = attachment_name(url, content_type)
+            stem, suffix = os.path.splitext(name)
+            candidate = name
+            counter = 2
+            while candidate in used_names:
+                candidate = f"{stem}-{counter}{suffix}"
+                counter += 1
+            used_names.add(candidate)
+            (attachment_dir / candidate).write_bytes(body)
+            item.update(
+                {
+                    "status": "downloaded",
+                    "path": f"attachments/{candidate}",
+                    "bytes": len(body),
+                    "content_type": content_type,
+                    "sha256": hashlib.sha256(body).hexdigest(),
+                }
+            )
+        except Exception as error:  # Preserve the manifest even if one old upload is gone.
+            item["error"] = str(error)
+        results.append(item)
+    write_json(output / "attachments.json", results)
+    return results
+
+
+def download_release_assets(
+    client: GitHubClient,
+    output: Path,
+    releases: Iterable[dict[str, Any]],
+    max_bytes: int,
+) -> list[dict[str, Any]]:
+    """Download release files through the authenticated GitHub asset API."""
+
+    asset_dir = output / "release-assets"
+    asset_dir.mkdir(parents=True, exist_ok=True)
+    results: list[dict[str, Any]] = []
+    used_names: set[str] = set()
+    for release in releases:
+        for asset in release.get("assets", []):
+            item: dict[str, Any] = {
+                "release_id": release.get("id"),
+                "release_tag": release.get("tag_name"),
+                "asset_id": asset.get("id"),
+                "name": asset.get("name"),
+                "status": "failed",
+            }
+            try:
+                asset_url = asset.get("url") or asset.get("browser_download_url")
+                if not asset_url:
+                    raise RuntimeError("release asset has no download URL")
+                body, content_type = client.bytes(asset_url)
+                if len(body) > max_bytes:
+                    raise RuntimeError(f"release asset exceeds {max_bytes} byte limit")
+                base = safe_name(asset.get("name") or f"asset-{asset.get('id', 'unknown')}")
+                prefix = safe_name(str(release.get("tag_name") or release.get("id") or "release"))
+                candidate = f"{prefix}-{base}"
+                stem, suffix = os.path.splitext(candidate)
+                counter = 2
+                while candidate in used_names:
+                    candidate = f"{stem}-{counter}{suffix}"
+                    counter += 1
+                used_names.add(candidate)
+                (asset_dir / candidate).write_bytes(body)
+                item.update(
+                    {
+                        "status": "downloaded",
+                        "path": f"release-assets/{candidate}",
+                        "bytes": len(body),
+                        "content_type": content_type,
+                        "sha256": hashlib.sha256(body).hexdigest(),
+                    }
+                )
+            except Exception as error:  # Keep metadata if a release asset was deleted.
+                item["error"] = str(error)
+            results.append(item)
+    write_json(output / "release-assets.json", results)
+    return results
+
+
+def export_repository(
+    client: GitHubClient,
+    source_repository: str,
+    output: Path,
+    include_attachments: bool = True,
+    max_attachment_bytes: int = DEFAULT_MAX_ATTACHMENT_BYTES,
+) -> dict[str, Any]:
+    validate_output_path(output)
+    owner, name = parse_repository(source_repository)
+    repo_path = f"{owner}/{name}"
+    repository = client.json(f"/repos/{repo_path}")
+    issues = [
+        item
+        for item in client.all(f"/repos/{repo_path}/issues?state=all")
+        if not issue_has_pull_request(item)
+    ]
+    pulls = client.all(f"/repos/{repo_path}/pulls?state=all&sort=created&direction=asc")
+    releases = client.all(f"/repos/{repo_path}/releases")
+
+    issue_records = [enrich_issue(client, repo_path, item) for item in issues]
+    pull_records = [enrich_pull_request(client, repo_path, item) for item in pulls]
+
+    write_json(output / "repository.json", repository)
+    write_json(output / "issues" / "index.json", {"count": len(issue_records), "items": issue_records})
+    write_json(output / "pull_requests" / "index.json", {"count": len(pull_records), "items": pull_records})
+
+    release_records: list[dict[str, Any]] = []
+    release_assets: list[dict[str, Any]] = []
+    for release in releases:
+        release_copy = dict(release)
+        assets = release_copy.pop("assets", [])
+        release_copy["assets"] = assets
+        release_records.append(release_copy)
+        release_assets.extend(
+            {
+                "release_id": release.get("id"),
+                "release_tag": release.get("tag_name"),
+                **asset,
+            }
+            for asset in assets
+        )
+    write_json(output / "releases" / "index.json", {"count": len(release_records), "items": release_records})
+
+    records_for_attachments: list[dict[str, Any]] = [*issue_records, *pull_records, *release_records]
+    if include_attachments:
+        attachment_records = download_attachments(client, output, records_for_attachments, max_attachment_bytes)
+        release_asset_records = download_release_assets(client, output, release_records, max_attachment_bytes)
+    else:
+        attachment_records = []
+        release_asset_records = []
+        write_json(output / "attachments.json", [])
+        write_json(output / "release-assets.json", [])
+
+    manifest = {
+        "schema_version": 1,
+        "source_repository": repo_path,
+        "generated_at": utc_now(),
+        "counts": {
+            "issues": len(issue_records),
+            "pull_requests": len(pull_records),
+            "releases": len(release_records),
+            "release_assets": len(release_assets),
+            "attachments_found": len(attachment_records),
+            "attachments_downloaded": sum(item.get("status") == "downloaded" for item in attachment_records),
+            "attachments_failed": sum(item.get("status") == "failed" for item in attachment_records),
+            "release_assets_downloaded": sum(item.get("status") == "downloaded" for item in release_asset_records),
+            "release_assets_failed": sum(item.get("status") == "failed" for item in release_asset_records),
+        },
+        "files": {
+            "repository": "repository.json",
+            "issues": "issues/index.json",
+            "pull_requests": "pull_requests/index.json",
+            "releases": "releases/index.json",
+            "attachments": "attachments.json",
+            "release_assets": "release-assets.json",
+        },
+        "notes": [
+            "Issues and pull requests are separated; GitHub exposes pull requests in the issues endpoint too.",
+            "Pull requests include issue comments, reviews, and inline review comments.",
+            "Only GitHub-hosted attachment URLs are downloaded; ordinary external links remain in their source text.",
+        ],
+    }
+    write_json(output / "manifest.json", manifest)
+    return manifest
+
+
+def parse_args(argv: list[str]) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("source_repository", help="OWNER/REPOSITORY or a GitHub URL")
+    parser.add_argument("output", type=Path, help="directory in which to write the dump")
+    parser.add_argument("--no-attachments", action="store_true", help="skip GitHub-hosted attachment downloads")
+    parser.add_argument(
+        "--max-attachment-bytes",
+        type=int,
+        default=DEFAULT_MAX_ATTACHMENT_BYTES,
+        help="reject individual attachments larger than this size",
+    )
+    parser.add_argument("--token", default=None, help=argparse.SUPPRESS)
+    return parser.parse_args(argv)
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = parse_args(argv or sys.argv[1:])
+    try:
+        validate_output_path(args.output, require_relative=True)
+        export_repository(
+            GitHubClient(token=args.token),
+            args.source_repository,
+            args.output,
+            include_attachments=not args.no_attachments,
+            max_attachment_bytes=args.max_attachment_bytes,
+        )
+    except (RuntimeError, ValueError, OSError, json.JSONDecodeError) as error:
+        print(f"repo-dump: {error}", file=sys.stderr)
+        return 1
+    print(f"repo-dump: completed {args.source_repository} -> {args.output}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,3 +1,44 @@
+# Repository dump tool
+
+This repository contains a zero-dependency exporter for preserving a GitHub
+repository's history in another repository. It exports:
+
+- all open and closed issues, including their complete comment threads;
+- all open and closed pull requests, issue comments, reviews, and inline review comments;
+- all releases, release notes, tags, and release assets; and
+- GitHub-hosted images, files, and media linked from issue, pull-request, and release text.
+
+The result is written to a deterministic folder with JSON indexes and a
+`manifest.json`. External links are kept in their original text but are not
+downloaded, so an arbitrary link in a discussion cannot make the workflow
+fetch unrelated content.
+
+## Mobile-friendly workflow
+
+1. Open the **Actions** tab on GitHub and select **Dump a GitHub repository**.
+2. Choose **Run workflow**, enter `OWNER/REPOSITORY`, and run it.
+
+The workflow uses the built-in `GITHUB_TOKEN`, commits the export into
+`repo-dump/`, and can be started from the GitHub mobile app. Set
+`include_attachments` to `false` when a metadata-only snapshot is wanted.
+
+The command-line equivalent is:
+
+```bash
+GITHUB_TOKEN=... python tools/repo_dump.py OWNER/REPOSITORY repo-dump
+```
+
+The exporter uses the public GitHub REST API and has no paid-service or
+third-party dependency. Individual downloads are capped at 512 MiB by
+default; failed or deleted uploads remain visible in the manifest instead of
+silently disappearing.
+
+Run the local tests with:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
 # THE-ERROR-IS-THE-MESSAGE
 
 https://github.com/user-attachments/assets/2b63e6fb-72a3-4a05-92b8-e2c046615a74
