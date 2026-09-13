@@ -18,10 +18,11 @@
     "releases": "releases/index.json",
     "repository": "repository.json"
   },
-  "generated_at": "2026-09-13T17:46:56+00:00",
+  "generated_at": "2026-09-13T18:03:38+00:00",
   "notes": [
     "Issues and pull requests are separated; GitHub exposes pull requests in the issues endpoint too.",
     "Pull requests include issue comments, reviews, and inline review comments.",
+    "Each issue, pull request, and release is also rendered as a readable markdown file next to the raw JSON.",
     "Only GitHub-hosted attachment URLs are downloaded; ordinary external links remain in their source text."
   ],
   "schema_version": 1,
